@@ -18,3 +18,5 @@ If you're here, it means that you intend to be part of our team.
   Considering that my name is Guilherme Prado the branch name should be: "feature/guilherme_prado"
 - Work **only** on your branch, and after you finish, create a Pull Request to "dev" branch.
 - **DO NOT** change the reviewers of your Pull Request.
+- If you need to do a network call on the challenge, use the following Endpoint: https://nba-teams-3306.getsandbox.com/.
+  It's a single GET call which retrieves some JSON data, feel free to use it.

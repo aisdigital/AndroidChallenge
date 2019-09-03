@@ -20,7 +20,9 @@ We’re rooting for you. 😁
 - Work **only** on your branch, and after you finish, create a Pull Request to "dev" branch.
 - **DO NOT** change the reviewers of your Pull Request.
 - If you need to do a API call on the challenge, use the following Endpoint:
-Base url is https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io,
-Te path is /teams.
+
+  Base url is https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io,
+  
+  The path is /teams.
 
 Let The challenge begin!

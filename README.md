@@ -19,10 +19,60 @@ We’re rooting for you. 😁
   Considering that my name is Guilherme Prado the branch name should be: "feature/guilherme_prado"
 - Work **only** on your branch, and after you finish, create a Pull Request to "dev" branch.
 - **DO NOT** change the reviewers of your Pull Request.
-- If you need to do a API call to create a list on the challenge, use the following Endpoint:
 
-  Base url is https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io,
+## API
+
+You don't need to use all the following endpoints, but depending on yout challenge, you might need to use one or more.
+
+Base url is https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io,
+
+### List Endpoint
+- If you need to do a API call to create a list on the challenge, use the following Endpoint:
   
+  GET
   The path is /teams.
+  
+  Response example (List):
+  {
+    "name": "Celtics",
+    "city": "New Jersey",
+    "conference": "EAST",
+    "teamImageUrl": "https://upload.wikimedia.org/wikipedia/pt/thumb/f/f5/Boston_Celtics.png/200px-Boston_Celtics.png",
+    "description": "O Boston Celtics é uma franquia de basquetebol filiada à National Basketball Association e situada na
+      cidade de Boston, no estado americano de Massachusetts. Fundado em 6 de junho de 1946, é uma das únicas equipes que se
+      mantém desde que foi criada."
+  }
+  
+### Login Endpoint
+ To do the login, you need to use these two endpoints, the first one will give you an auth-token, and you need to use this token on the second request to get the user info.
+
+- If you need to do a API call to login, use the following Endpoint:
+  
+  POST
+  The path is /auth
+  
+  Query Params:
+  user_email - The user email.
+  user_password - The user password.
+  
+  Response example:
+  {
+    "token" : "jkrdvjnksdv89qefn8fui31ncdn8"
+  }
+  
+- And after this, use this one to finish the Login step:
+ 
+  GET
+  The path is /login
+  
+  Headers:
+  x-auth-token - The token received on the "/auth" response.
+  
+  Response example:
+  {
+    "name": "Jon Doe",
+    "age": "20",
+    "gender": "MALE"
+  }
 
 Let The challenge begin!

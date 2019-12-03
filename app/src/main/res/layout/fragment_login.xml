@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewmodel"
+            type="br.com.aisdigital.androidchallenge.viewmodel.LoginViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ProgressBar
+            android:id="@+id/pbLogin"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:indeterminate="true"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="100dp"
+            android:visibility="@{viewmodel.dataLoading ? View.GONE : View.VISIBLE}"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/colorAccent"
+            android:text="@{String.format(@string/saudation, viewmodel.user.name)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Olá, Fulano!" />
+
+        <TextView
+            android:id="@+id/tvGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewmodel.dataLoading ? View.GONE : View.VISIBLE}"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif-light"
+            tools:text="Genero"
+            android:text="@{String.format(@string/gender, viewmodel.user.gender)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:visibility="@{viewmodel.dataLoading ? View.GONE : View.VISIBLE}"
+            android:textColor="@color/colorAccent"
+            android:layout_marginTop="8dp"
+            tools:text="Idade"
+            android:fontFamily="sans-serif-light"
+            android:text="@{String.format(@string/age, viewmodel.user.age)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvGender" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

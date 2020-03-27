@@ -7,17 +7,17 @@ We’re rooting for you. 😁
 
 ## Some Rules
 
-1 - **DO NOT** share this repository or your answer with others - forks aren't allowed here.
+1 - **DO NOT** share your answer with others.
 
 2 - Remember that this challenge it's meant to evaluate your skills, you don't necessarily have to finish **all** the challenge code implementation, we just want to get know you better. 😁
 
 ## Steps
 
-- Clone the repository.
+- Fork the repository.
 - Create a branch (from dev branch) with the following pattern:
   Use your name as branch name, eg:
   Considering that my name is Guilherme Prado the branch name should be: "feature/guilherme_prado"
-- Work **only** on your branch, and after you finish, create a Pull Request to "dev" branch.
+- Work **only** on your branch, and after you finish, create a Pull Request to "dev" branch on this repository.
 - **DO NOT** change the reviewers of your Pull Request.
 
 ## API

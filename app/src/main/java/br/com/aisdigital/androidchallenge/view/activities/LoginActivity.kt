@@ -26,7 +26,11 @@ class LoginActivity: AppCompatActivity() {
         viewModel.run {
             observe(user) {
                 it?.run {
-                    startActivity(Intent(this@LoginActivity, TeamsActivity::class.java))
+                    startActivity(
+                        Intent(
+                            this@LoginActivity,
+                            TeamsActivity::class.java
+                        ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 }
             }
         }

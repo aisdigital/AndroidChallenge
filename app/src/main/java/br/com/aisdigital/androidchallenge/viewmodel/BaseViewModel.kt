@@ -8,7 +8,7 @@ import br.com.aisdigital.androidchallenge.common.State
 open class BaseViewModel : ViewModel() {
     //Control loader view visibility
     val mainLoaderVisibility = MutableLiveData<Int>().apply {
-        value = View.VISIBLE
+        value = View.GONE
     }
     //Control content view visibility
     val contendVisibility = MutableLiveData<Int>().apply {

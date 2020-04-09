@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+
+    <string name="error_title">Oooops!</string>
+    <string name="error_body">Feel lost and unconnected, like you are on a deserted island? Follow the advice, keep calm, light a fire, and keep refreshing.</string>
+    <string name="error_button_text">Refresh</string>
+    <string name="no_teams_found">Sorry. No teams found!</string>
 </resources>

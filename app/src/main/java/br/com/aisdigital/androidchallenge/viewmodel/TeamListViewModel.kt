@@ -12,27 +12,24 @@ import kotlinx.coroutines.launch
 class TeamListViewModel(val repository: AndroidChallengeRepository) : BaseViewModel() {
 
     val teamList: MutableLiveData<List<Team>> = MutableLiveData()
-
-    val noTeamFoundVisibility = MutableLiveData<Int>().apply {
+    val noPostFoundVisibility = MutableLiveData<Int>().apply {
         value = View.GONE
-    }
-
-    private fun clearEmptyWarning() {
-        noTeamFoundVisibility.value = getVisibility(false)
     }
 
     fun validateData() {
         teamList.value?.takeIf { it.isEmpty() }?.run {
-            noTeamFoundVisibility.value = getVisibility(true)
+            noPostFoundVisibility.value = getVisibility(true)
         }
     }
 
-    fun getData(isRefresh: Boolean = false) {
+    private fun clearEmptyWarning() {
+        noPostFoundVisibility.value = getVisibility(false)
+    }
+
+    fun getData() {
         clearEmptyWarning()
 
-        takeIf { isRefresh }?.run {
-            setState(State.REFRESH_LOADING)
-        } ?: setState(State.LOADING)
+        setState(State.LOADING)
 
         viewModelScope.launch {
             try {
@@ -41,7 +38,6 @@ class TeamListViewModel(val repository: AndroidChallengeRepository) : BaseViewMo
 
                 setState(State.SUCCESS)
             } catch (ex: Exception) {
-//                Log.e(TAG_ERROR, ex.message.orEmpty())
                 setState(State.ERROR)
             }
         }

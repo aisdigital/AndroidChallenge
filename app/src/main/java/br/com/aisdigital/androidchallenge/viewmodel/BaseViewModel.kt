@@ -5,13 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.aisdigital.androidchallenge.common.State
 
-abstract class BaseViewModel : ViewModel() {
+open class BaseViewModel : ViewModel() {
+    //Control loader view visibility
     val mainLoaderVisibility = MutableLiveData<Int>().apply {
         value = View.VISIBLE
     }
+    //Control content view visibility
     val contendVisibility = MutableLiveData<Int>().apply {
         value = View.VISIBLE
     }
+    //Control error view visibility
     val errorVisibility = MutableLiveData<Int>().apply {
         value = View.GONE
     }

@@ -5,13 +5,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_teams_viewholder"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-        android:background="@color/colorPrimaryDark"
-        />
+    <data>
+        <variable
+            name="teamViewModel"
+            type="br.com.aisdigital.androidchallenge.viewmodel.TeamListViewModel"
+            />
+    </data>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_teams_viewholder"
+            android:visibility="@{teamViewModel.contendVisibility.intValue()}"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            android:background="@color/colorPrimaryDark"
+            />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{teamViewModel.mainLoaderVisibility.intValue()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loader" />
+
+
+        <include
+            layout="@layout/layout_error"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{teamViewModel.errorVisibility.intValue()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onRefreshClick="@{() -> teamViewModel.getData()}"
+            tools:visibility="gone" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:text="@string/no_teams_found"
+            android:visibility="@{teamViewModel.noPostFoundVisibility.intValue()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -10,6 +10,8 @@ dependencies {
     implementation dependencies.kotlin
     testImplementation testDependencies.junit
     testImplementation testDependencies.assertJCore
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.coroutineTest
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8

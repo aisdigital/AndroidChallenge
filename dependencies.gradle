@@ -21,6 +21,9 @@ ext {
     espressoVersion = '3.2.0'
     runnerVersion = '1.2.0'
     assertJCoreVersion = '3.11.1'
+    mockito_kotlin_version = '2.0.0'
+    mockito_inline_version = '2.13.0'
+    coroutine_test_version = '1.3.0'
 
     dependencies = [
         kotlin      : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
@@ -33,6 +36,8 @@ ext {
         junit       : "junit:junit:$junitVersion",
         espresso    : "androidx.test.espresso:espresso-core:$espressoVersion",
         runner      : "androidx.test:runner:$runnerVersion",
-        assertJCore : "org.assertj:assertj-core:$assertJCoreVersion"
+        assertJCore : "org.assertj:assertj-core:$assertJCoreVersion",
+        mockito     :  "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockito_kotlin_version",
+        coroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_test_version"
     ]
 }

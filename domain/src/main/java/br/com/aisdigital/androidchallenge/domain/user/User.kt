@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.domain
+package br.com.aisdigital.androidchallenge.domain.user
 
 data class User (
     val name: String,

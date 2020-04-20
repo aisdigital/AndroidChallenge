@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/teamListFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="br.com.aisdigital.androidchallenge.ui.LoginFragment"
+        android:label="LoginFragment" />
+
+    <fragment
+        android:id="@+id/teamListFragment"
+        android:name="br.com.aisdigital.androidchallenge.ui.TeamListFragment"
+        android:label="TeamListFragment">
+        <action
+            android:id="@+id/action_teamListFragment_to_teamDetailsFragment"
+            app:destination="@id/teamDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/teamDetailsFragment"
+        android:name="br.com.aisdigital.androidchallenge.ui.TeamDetailsFragment"
+        android:label="TeamDetailsFragment" />
+
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="br.com.aisdigital.androidchallenge.ui.UserProfileFragment"
+        android:label="UserProfileFragment" />
+
+</navigation>

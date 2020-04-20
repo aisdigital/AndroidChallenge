@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
     <string name="email">E-mail</string>
-    <string name="password">Password</string>
-    <string name="login">Login</string>
-    <string name="team_image">Team image</string>
+    <string name="password">Senha</string>
+    <string name="login">Entrar</string>
+    <string name="team_image">Imagem do time</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
-    <string name="teams">Teams</string>
-    <string name="profile">Profile</string>
-    <string name="please_try_again">Error, please try again</string>
-    <string name="ops_you_must_be_logged_in">Ops, you must be logged in!</string>
-    <string name="other">%1$s, %2$d years</string>
-    <string name="conference">%1$s conference</string>
-    <string name="required">Required</string>
-    <string name="invalid_email">Invalid e-mail</string>
+    <string name="teams">Times</string>
+    <string name="profile">Perfil</string>
+    <string name="please_try_again">Erro, tente novamente</string>
+    <string name="ops_you_must_be_logged_in">Opa, você precisa estar logado!</string>
+    <string name="other">%1$s, %2$d anos</string>
+    <string name="conference">Conferência %1$s</string>
+    <string name="required">Obrigatório</string>
+    <string name="invalid_email">E-mail inválido</string>
 </resources>

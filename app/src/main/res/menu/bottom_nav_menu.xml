@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/teamListFragment"
+        android:icon="@drawable/ic_view_list_black_24dp"
+        android:title="@string/teams" />
+
+    <item
+        android:id="@+id/userProfileFragment"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/profile" />
+
+</menu>

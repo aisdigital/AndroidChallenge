@@ -1,3 +1,4 @@
 rootProject.name='AndroidChallenge'
 include ':app'
 include ':domain'
+include ':networking'

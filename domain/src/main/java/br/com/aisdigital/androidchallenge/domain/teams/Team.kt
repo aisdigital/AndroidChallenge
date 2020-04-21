@@ -5,5 +5,5 @@ data class Team(
     val city: String,
     val conference: String,
     val image: String,
-    val description: String
+    val descr: String
 )

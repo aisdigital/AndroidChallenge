@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.login.ui.login
+package br.com.aisdigital.androidchallenge.login
 
 /**
  * Data validation state of the login form.

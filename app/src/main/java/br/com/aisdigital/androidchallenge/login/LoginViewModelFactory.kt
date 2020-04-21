@@ -1,9 +1,9 @@
-package br.com.aisdigital.androidchallenge.login.ui.login
+package br.com.aisdigital.androidchallenge.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import br.com.aisdigital.androidchallenge.login.data.LoginDataSource
-import br.com.aisdigital.androidchallenge.login.data.LoginRepository
+import br.com.aisdigital.androidchallenge.data.LoginDataSource
+import br.com.aisdigital.androidchallenge.data.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

@@ -1,4 +1,6 @@
-package br.com.aisdigital.androidchallenge.login.ui.login
+package br.com.aisdigital.androidchallenge.login
+
+import br.com.aisdigital.androidchallenge.login.LoggedInUserView
 
 /**
  * Authentication result : success (user details) or error message.

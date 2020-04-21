@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.login.ui.login
+package br.com.aisdigital.androidchallenge.login
 
 /**
  * User details post authentication that is exposed to the UI

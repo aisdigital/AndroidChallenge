@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.data.api
 
 import java.util.concurrent.TimeUnit
 
@@ -36,7 +36,8 @@ object RetrofitClient {
                 .build()
 
 
-        service = retrofit.create<Api>(Api::class.java)
+        service = retrofit.create<Api>(
+            Api::class.java)
         return service!!
     }
 }

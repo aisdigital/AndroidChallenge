@@ -22,34 +22,37 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
 
     fun login(username: String, password: String) {
         // can be launched in a separate asynchronous job
-        loginRepository.login(username, password)
+        loginRepository.auth(username, password)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnNext {  }
             .doOnComplete {  }
             .subscribe ({
-                Log.e("DIEGO","retornou do back" + it.size)
-                _tool.value = it
+               getUser(it.token)
             }, { e ->
+                _loginResult.value =
+                    LoginResult(error = R.string.login_failed)
+                e.printStackTrace()
+            })
+    }
+
+    private fun getUser(it: String?) {
+
+        loginRepository.getUSer()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnNext {  }
+            .doOnComplete {  }
+            .subscribe ({
+                _loginResult.value = LoginResult(success = LoggedInUserView(displayName = it.name))
+
+            }, { e ->
+                _loginResult.value =
+                    LoginResult(error = R.string.login_failed)
                 e.printStackTrace()
             })
 
-
-
-        val result = loginRepository.login(username, password)
-
-        if (result is Result.Success) {
-            _loginResult.value =
-                LoginResult(
-                    success = LoggedInUserView(
-                        displayName = result.data.displayName
-                    )
-                )
-        } else {
-            _loginResult.value =
-                LoginResult(error = R.string.login_failed)
-        }
-    }
+          }
 
     fun loginDataChanged(username: String, password: String) {
         if (!isUserNameValid(username)) {

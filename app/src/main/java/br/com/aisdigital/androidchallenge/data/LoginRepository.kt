@@ -1,5 +1,7 @@
 package br.com.aisdigital.androidchallenge.data
 
+import android.media.session.MediaSession
+import br.com.aisdigital.androidchallenge.data.model.Login
 import br.com.aisdigital.androidchallenge.data.model.User
 import io.reactivex.Observable
 
@@ -20,13 +22,13 @@ class LoginRepository(val dataSource: LoginDataSource) {
     }
 
 
-    fun auth(username: String, password: String): Observable<String> {
+    fun auth(username: String, password: String): Observable<Login> {
         return dataSource.auth(username, password).map {
             it
         }
     }
 
-    fun getUSer(username: String, password: String): Observable<User> {
+    fun getUSer(): Observable<User> {
         return dataSource.getUser().map {
             setLoggedInUser(it)
             it

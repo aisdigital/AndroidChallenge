@@ -5,10 +5,12 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.data.model.Team
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.item_teams.view.*
 
 class TeamsAdapter (var finishAction: ((Team) -> Unit)) : RecyclerView.Adapter<TeamsAdapter.ToolViewHolder>() {
     var list: List<Team> = listOf()
@@ -29,67 +31,24 @@ class TeamsAdapter (var finishAction: ((Team) -> Unit)) : RecyclerView.Adapter<T
         holder.bind(list[position])
     }
 
-    class ToolViewHolder(itemView: View, var finishAction: ((Team) -> Unit )) : RecyclerView.ViewHolder(itemView) {
+    class ToolViewHolder(itemView: View, var clickAction: ((Team) -> Unit )) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(team: Team) {
-            /*
-            tvName.text = Tool.nome
-            //tvToolName.text = Tool.tool?.nome
-            tvToolNumber.text = "Ferramenta # ${Tool?.numero}"
-            tvAddress.text = "Endereço: ${Tool.local}"
-            tvStatus.text = Tool.status
-            tvSpecifications.text = "Especificações: ${Tool.especificacoes}"
-
-            when (Tool.status) {
-                "disponivel" -> {
-                    tvStatus.setTextColor(itemView.context.resources.getColor(R.color.active))
-                    cvContent.setBackgroundColor(itemView.context.resources.getColor(R.color.bgActive))
-                    btCall.text = "P/ Manutenção"
-                    btCall.visibility = View.VISIBLE
-                }
-                "manutencao" -> {
-                    tvStatus.setTextColor(itemView.context.resources.getColor(R.color.inactive))
-                    cvContent.setBackgroundColor(itemView.context.resources.getColor(R.color.bgInactive))
-                    btCall.text = "P/ Disponivel"
-                    btCall.visibility = View.VISIBLE
-                }
-                else -> {
-                    tvStatus.setTextColor(itemView.context.resources.getColor(R.color.inactive))
-                    cvContent.setBackgroundColor(itemView.context.resources.getColor(R.color.bgInactive))
-                    btCall.visibility = View.GONE
-                }
+            description.text = team.description
+            conference.text = team.conference
+            name.text = team.name
+            city.text = team.city
+            Glide.with(itemView.context).load(team.teamImageUrl).into(icon)
+            content.setOnClickListener{
+                clickAction.invoke(team)
             }
-
-            ivMapIcone.setOnClickListener {
-                val gmmIntentUri: Uri = Uri.parse("geo:0,0?q=${Tool.local}")
-                val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-                mapIntent.setPackage("com.google.android.apps.maps")
-                itemView.context.startActivity(mapIntent)
-            }
-
-            btCall.setOnClickListener {
-                finishAction.invoke(Tool)
-            }
-
-            when (Tool?.tipo) {
-                "container" -> {
-                    Glide.with(itemView.context).load(R.drawable.icon_container).into(tvIcon)
-                }
-                "betoneira" -> {
-                    Glide.with(itemView.context).load(R.drawable.icon_container).into(tvIcon)
-                }
-                "andaime" -> {
-
-                }
-                "banheiroquimico" -> {
-
-                }
-                else -> {
-                    Glide.with(itemView.context).load(R.drawable.icon_container).into(tvIcon);
-                }
-            }*/
         }
 
-
+        private val description = itemView.description
+        private val conference = itemView.conference
+        private val name = itemView.name
+        private val city = itemView.city
+        private val icon = itemView.icon
+        private val content = itemView.content
     }
 }

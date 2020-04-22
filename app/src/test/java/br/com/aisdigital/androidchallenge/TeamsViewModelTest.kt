@@ -1,17 +1,14 @@
-package br.com.aisdigital.androidchallenge.list
+package br.com.aisdigital.androidchallenge
 
+import br.com.aisdigital.androidchallenge.data.TeamsDataSource
+import br.com.aisdigital.androidchallenge.data.TeamsRepository
+import br.com.aisdigital.androidchallenge.data.api.Api
+import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
+import org.mockito.Mock
 
-import org.junit.Assert.*
+abstract class TeamsViewModelTest {
 
-class TeamsViewModelTest {
-
-    @Test
-    fun getTeams() {
-        
-    }
-
-    @Test
-    fun testGetTeams() {
-    }
+  
 }

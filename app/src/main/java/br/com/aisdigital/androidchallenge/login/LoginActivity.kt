@@ -1,6 +1,6 @@
 package br.com.aisdigital.androidchallenge.login
 
-import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -15,6 +15,8 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import br.com.aisdigital.androidchallenge.R
+import br.com.aisdigital.androidchallenge.list.TeamsActivity
+import br.com.aisdigital.androidchallenge.list.TeamsViewModel
 
 
 class LoginActivity : AppCompatActivity() {
@@ -58,11 +60,9 @@ class LoginActivity : AppCompatActivity() {
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
+                startActivity( Intent(this, TeamsActivity::class.java))
+                finish()
             }
-            setResult(Activity.RESULT_OK)
-
-            //Complete and destroy login activity once successful
-            finish()
         })
 
         username.afterTextChanged {

@@ -16,5 +16,5 @@ interface Api {
     fun getUser(): Observable<User>
 
     @GET("teams")
-    fun getTeams(): Observable<Team>
+    fun getTeams(): Observable<List<Team>>
 }

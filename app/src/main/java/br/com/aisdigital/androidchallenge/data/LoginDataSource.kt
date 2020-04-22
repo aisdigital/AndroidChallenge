@@ -7,10 +7,13 @@ import io.reactivex.Observable
 
 class LoginDataSource {
 
-    private val client = RetrofitClient.getClient()
+    private var client = RetrofitClient.getClient()
 
     fun auth(username: String, password: String): Observable<Login> {
-        return client.auth(username, password).map { it }
+        return client.auth(username, password).map {
+            client = RetrofitClient.getClient(it.token)
+            it
+        }
     }
 
     fun getUser(): Observable<User> {

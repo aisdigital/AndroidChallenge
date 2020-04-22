@@ -7,7 +7,7 @@ import io.reactivex.Observable
 class TeamsDataSource {
     private val client = RetrofitClient.getClient()
 
-    fun getTeams(): Observable<Team> {
+    fun getTeams(): Observable<List<Team>> {
         return client.getTeams().map { it }
     }
 }

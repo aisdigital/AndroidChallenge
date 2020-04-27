@@ -32,11 +32,24 @@ dependencies {
     def dependencies = rootProject.ext.dependencies
     def testDependencies = rootProject.ext.testDependecies
 
+    implementation project(":domain")
+    implementation project(":networking")
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation dependencies.kotlin
     implementation dependencies.appCompact
     implementation dependencies.ktx
     implementation dependencies.constraintlayout
+    implementation dependencies.materialDesign
+    implementation dependencies.circleImageView
+    implementation dependencies.picasso
+    implementation dependencies.viewModelExt
+    implementation dependencies.coroutineCore
+    implementation dependencies.coroutineAndroid
+    implementation dependencies.lifecycleRuntime
+    implementation dependencies.lifecycleExt
+
+
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.runner
     androidTestImplementation testDependencies.espresso

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+    <string name="teams">TEAMS</string>
+    <string name="basketball">BASKETBALL</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="image_content_description">Team Image</string>
 </resources>

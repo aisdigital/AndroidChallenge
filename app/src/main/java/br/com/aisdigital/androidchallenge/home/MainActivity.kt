@@ -1,7 +1,8 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.aisdigital.androidchallenge.R
 
 class MainActivity : AppCompatActivity() {
 

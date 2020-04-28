@@ -5,5 +5,5 @@ import retrofit2.http.GET
 interface TeamsIO {
 
     @GET("/teams")
-    suspend fun listTeams() : RawTeams
+    suspend fun listTeams() : List<RawTeam>
 }

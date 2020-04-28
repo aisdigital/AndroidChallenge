@@ -1,6 +1,5 @@
 package br.com.aisdigital.androidchallenge.networking
 
-import br.com.aisdigital.androidchallenge.domain.user.User
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST

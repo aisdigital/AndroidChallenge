@@ -6,6 +6,14 @@ import br.com.aisdigital.androidchallenge.domain.teams.Team
 class FetchTeamsNetworkingService(private val restApi: TeamsIO) : FetchTeamService {
 
     override suspend fun fetchAll(): List<Team> {
-        return restApi.listTeams().asTeamEntityList()
+        return restApi.listTeams().map {
+            Team(
+                it.name,
+                it.city,
+                it.conference,
+                it.teamImageUrl,
+                it.description
+            )
+        }
     }
 }

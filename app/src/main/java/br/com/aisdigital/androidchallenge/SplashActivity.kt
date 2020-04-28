@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import br.com.aisdigital.androidchallenge.home.MainActivity
 import br.com.aisdigital.androidchallenge.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
@@ -11,7 +12,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         Handler().postDelayed ({
-            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
             finish()
         }, 2000)
     }

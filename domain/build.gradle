@@ -8,6 +8,9 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation dependencies.kotlin
+    implementation dependencies.koin
+
+
     testImplementation testDependencies.junit
     testImplementation testDependencies.assertJCore
     testImplementation testDependencies.mockito

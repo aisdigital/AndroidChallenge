@@ -12,7 +12,21 @@
        android:layout_height="match_parent"
        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
        android:orientation="vertical"
+       android:clickable="true"
+       android:focusable="true"
        tools:itemCount="15"
        tools:listitem="@layout/list_item"/>
+
+   <ProgressBar
+      android:id="@+id/progress"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:visibility="gone"/>
+
+   <include layout="@layout/layout_error" android:visibility="gone" android:id="@+id/error" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

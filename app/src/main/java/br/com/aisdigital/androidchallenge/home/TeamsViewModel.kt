@@ -22,6 +22,7 @@ class TeamsViewModel(
     get() = _teams
 
     fun loadTeams() {
+        _teams.postValue(ViewState.Loading)
         viewModelScope.launch(ioDispatcher) {
             try {
                 _teams.postValue(ViewState.Success<List<TeamPresentation>>(useCase.listAll().map { TeamPresentation(

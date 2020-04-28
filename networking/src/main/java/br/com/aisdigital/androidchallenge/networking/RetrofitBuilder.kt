@@ -1,10 +1,8 @@
 package br.com.aisdigital.androidchallenge.networking
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
@@ -13,7 +11,7 @@ object RetrofitBuilder {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .client(httpClient)
-            .addConverterFactory(Json.nonstrict.asConverterFactory("application/json".toMediaTypeOrNull()!!))
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 

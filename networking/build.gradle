@@ -12,10 +12,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation dependencies.kotlin
     implementation dependencies.retrofit
-    implementation dependencies.okHttp
-    implementation dependencies.okHttpLogger
+    implementation dependencies.retrofitGsonConverter
+
     implementation dependencies.retrofitKotlinSerialization
     implementation dependencies.kotlinSerialization
+    implementation dependencies.koin
 
     testImplementation testDependencies.junit
     testImplementation testDependencies.assertJCore

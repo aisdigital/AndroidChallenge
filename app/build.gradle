@@ -25,6 +25,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -48,8 +53,13 @@ dependencies {
     implementation dependencies.coroutineAndroid
     implementation dependencies.lifecycleRuntime
     implementation dependencies.lifecycleExt
+    implementation dependencies.koin
+    implementation dependencies.koinViewModel
+    implementation dependencies.koinScope
 
 
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation testDependencies.junit
     androidTestImplementation testDependencies.runner
     androidTestImplementation testDependencies.espresso

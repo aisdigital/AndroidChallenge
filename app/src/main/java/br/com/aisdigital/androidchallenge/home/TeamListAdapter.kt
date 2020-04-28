@@ -1,13 +1,12 @@
 package br.com.aisdigital.androidchallenge.home
 
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.TeamPresentation
-import br.com.aisdigital.androidchallenge.domain.teams.Team
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item.view.*
 
@@ -26,12 +25,24 @@ class TeamListAdapter : RecyclerView.Adapter<TeamListAdapter.TeamViewHolder>() {
         fun bind(presentation: TeamPresentation) = with(itemView) {
             Picasso.get()
                 .load(presentation.image)
-                .resize(96, 96)
-                .centerCrop()
-                .into(itemView.imageView)
+                .fit()
+                .into(itemView.image)
 
-            teamName.text = presentation.name
-            teamCity.text = presentation.city
+            name.text = presentation.name
+            description.text = presentation.descr
+
+            bindClick(presentation)
+        }
+
+        private fun bindClick(presentation: TeamPresentation) = with(itemView) {
+            itemView.lyt_parent.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putParcelable("team", presentation)
+
+                val intent = Intent(context, TeamDetailsActivity::class.java)
+                intent.putExtras(bundle)
+                context.startActivity(intent)
+            }
         }
     }
 }

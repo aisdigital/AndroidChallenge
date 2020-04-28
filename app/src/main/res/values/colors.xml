@@ -6,4 +6,7 @@
     <color name="sigin_button_bg">#2660FF</color>
     <color name="login_field_bg_stroke">#454545</color>
     <color name="login_field_bg">#454545</color>
+    <color name="grey_90">#263238</color>
+    <color name="grey_10">#e6e6e6</color>
+    <color name="grey_40">#999999</color>
 </resources>

@@ -3,7 +3,7 @@ package br.com.aisdigital.androidchallenge
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import br.com.aisdigital.androidchallenge.domain.teams.FetchTeams
-import br.com.aisdigital.androidchallenge.home.TeamsViewModel
+import br.com.aisdigital.androidchallenge.teams.TeamsViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 
 class ViewModelFactory(private val usecase: FetchTeams, private val ioDispatcher: CoroutineDispatcher) : ViewModelProvider.Factory {

@@ -4,8 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import br.com.aisdigital.androidchallenge.home.MainActivity
-import br.com.aisdigital.androidchallenge.login.LoginActivity
+import br.com.aisdigital.androidchallenge.teams.MainActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

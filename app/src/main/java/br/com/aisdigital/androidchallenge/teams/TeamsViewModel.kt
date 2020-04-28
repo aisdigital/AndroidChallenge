@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.home
+package br.com.aisdigital.androidchallenge.teams
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

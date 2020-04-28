@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.home
+package br.com.aisdigital.androidchallenge.teams
 
 import android.content.Intent
 import android.os.Bundle

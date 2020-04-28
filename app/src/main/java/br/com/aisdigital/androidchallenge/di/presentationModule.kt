@@ -1,6 +1,6 @@
 package br.com.aisdigital.androidchallenge.di
 
-import br.com.aisdigital.androidchallenge.home.TeamsViewModel
+import br.com.aisdigital.androidchallenge.teams.TeamsViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

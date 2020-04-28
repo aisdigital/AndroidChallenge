@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".home.TeamDetailsActivity"></activity>
+        <activity android:name=".teams.TeamDetailsActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -25,7 +25,7 @@
         <activity
             android:name=".login.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".home.MainActivity" />
+        <activity android:name=".teams.MainActivity" />
     </application>
 
 </manifest>

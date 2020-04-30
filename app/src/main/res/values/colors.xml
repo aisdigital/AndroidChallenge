@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000</color>
-    <color name="colorPrimaryDark">#424A5C</color>
+    <color name="colorPrimary">#673AB7</color>
+    <color name="colorPrimaryDark">#673AB7</color>
     <color name="colorAccent">#940025</color>
-    <color name="sigin_button_bg">#2660FF</color>
+    <color name="colorSecundary">#AA00FF</color>
+    <color name="sigin_button_bg">#FFFFFF</color>
     <color name="login_field_bg_stroke">#454545</color>
     <color name="login_field_bg">#454545</color>
     <color name="grey_90">#263238</color>

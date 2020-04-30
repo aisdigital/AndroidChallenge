@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidChallenge</string>
+    <string name="app_name">Basketball Teams</string>
     <string name="teams">TEAMS</string>
     <string name="basketball">BASKETBALL</string>
     <string name="e_mail">E-mail</string>

@@ -4,9 +4,21 @@
 
     <item
         android:id="@+id/search_icon"
-        android:title="Search"
+        android:title="@string/menu_search"
         android:icon="@drawable/ic_search_black_24dp"
         app:showAsAction="ifRoom|collapseActionView"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/menu_about"
+        android:icon="@drawable/ic_info_black_24dp"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/logout"
+        android:title="@string/menu_logout"
+        android:icon="@drawable/ic_exit_to_app_black_24dp"
+        app:showAsAction="never" />
 
 </menu>

@@ -11,4 +11,7 @@
     <string name="error_occurred">Ocorreu um erro no processamento da requisição</string>
     <string name="city">City:</string>
     <string name="conference">Conference:</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_about">About</string>
+    <string name="menu_logout">Logout</string>
 </resources>

@@ -1,6 +1,7 @@
 package br.com.aisdigital.androidchallenge
 
 import android.app.Application
+import br.com.aisdigital.androidchallenge.data.di.dataModule
 import br.com.aisdigital.androidchallenge.di.presentationModule
 import br.com.aisdigital.androidchallenge.domain.di.domainModule
 import br.com.aisdigital.androidchallenge.networking.di.networkingModule
@@ -15,7 +16,7 @@ class App : Application() {
         startKoin{
             androidContext(this@App)
 
-            modules(domainModule + networkingModule + presentationModule)
+            modules(domainModule + dataModule + networkingModule + presentationModule)
         }
     }
 }

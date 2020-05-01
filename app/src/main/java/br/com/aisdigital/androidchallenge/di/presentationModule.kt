@@ -18,6 +18,7 @@ val presentation = module {
         LoginViewModel(
             loginValidator = get(),
             usecase = get(),
+            dataSource = get(),
             ioDispatcher = Dispatchers.IO
         )
     }

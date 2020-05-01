@@ -2,6 +2,7 @@ package br.com.aisdigital.androidchallenge.teams
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,13 +13,16 @@ import androidx.lifecycle.Observer
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.TeamPresentation
 import br.com.aisdigital.androidchallenge.ViewState
+import br.com.aisdigital.androidchallenge.login.LoginActivity
+import br.com.aisdigital.androidchallenge.login.LoginViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity() {
+class TeamsListActivity : AppCompatActivity() {
 
     private val viewModel: TeamsViewModel by viewModel()
+    private val loginViewModel: LoginViewModel by viewModel()
     private lateinit var teamsAdapter: TeamListAdapter
     private lateinit var teamList: List<TeamPresentation>
 
@@ -71,6 +75,23 @@ class MainActivity : AppCompatActivity() {
         })
 
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId) {
+            R.id.about -> {}
+            R.id.logout -> {
+                loginViewModel.logout()
+                val intent = Intent(this, LoginActivity::class.java).apply {
+                    setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                }
+
+                startActivity(intent)
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setupToolbar() {

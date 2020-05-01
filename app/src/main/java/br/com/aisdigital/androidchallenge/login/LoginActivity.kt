@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.ViewState
 import br.com.aisdigital.androidchallenge.databinding.ActivityLoginBinding
-import br.com.aisdigital.androidchallenge.teams.MainActivity
+import br.com.aisdigital.androidchallenge.teams.TeamsListActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
                     progress.visibility = View.VISIBLE
                 }
                 is ViewState.Success -> {
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, TeamsListActivity::class.java))
                     finish()
 
                 }

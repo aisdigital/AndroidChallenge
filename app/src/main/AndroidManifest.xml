@@ -25,7 +25,7 @@
         <activity
             android:name=".login.LoginActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".teams.MainActivity" />
+        <activity android:name=".teams.TeamsListActivity" />
     </application>
 
 </manifest>

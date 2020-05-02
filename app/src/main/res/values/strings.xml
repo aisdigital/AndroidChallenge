@@ -14,4 +14,9 @@
     <string name="menu_search">Search</string>
     <string name="menu_about">About</string>
     <string name="menu_logout">Logout</string>
+    <string name="log_in">Log In</string>
+    <string name="image_background_description">Image background</string>
+    <string name="usuario_e_ou_senha_invalidos">Usuário e/ou senha inválidos</string>
+    <string name="email_invalido">Email informado é inválido</string>
+    <string name="informe_uma_senha">Informe uma senha</string>
 </resources>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_activity_margin">16dp</dimen>
-    <dimen name="spacing_large">15dp</dimen>
-    <dimen name="spacing_middle">10dp</dimen>
-    <dimen name="spacing_medium">5dp</dimen>
-    <dimen name="spacing_xlarge">35dp</dimen>
+    <dimen name="spacing_5dp">5dp</dimen>
+    <dimen name="spacing_10dp">10dp</dimen>
+    <dimen name="spacing_15dp">15dp</dimen>
+    <dimen name="spacing_20dp">20dp</dimen>
+    <dimen name="spacing_25dp">25dp</dimen>
+    <dimen name="spacing_35dp">35dp</dimen>
 </resources>

@@ -2,6 +2,7 @@ package br.com.aisdigital.androidchallenge.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -29,8 +30,7 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginState.observe(this, Observer{ loginState ->
             when(loginState) {
                 is ViewState.Loading -> {
-                    btn_sign_in.text = ""
-                    btn_sign_in.alpha = 0.2f
+                    btn_sign_in.visibility = View.GONE
                     btn_sign_in.isClickable = false
                     progress.visibility = View.VISIBLE
                 }
@@ -41,8 +41,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 is ViewState.Failed -> {
                     error_msg.text = loginState.throwable.message
-                    btn_sign_in.text = getString(R.string.sign_in)
-                    btn_sign_in.alpha = 1.0f
+                    btn_sign_in.visibility = View.VISIBLE
                     btn_sign_in.isClickable = true
                     progress.visibility = View.GONE
                 }
@@ -52,6 +51,21 @@ class LoginActivity : AppCompatActivity() {
 
     fun signIn() {
         error_msg.text = ""
-        loginViewModel.authenticate()
+        tilEmail.error = null
+        var isValid = true
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(loginViewModel.emailAddress).matches()) {
+            tilEmail.error = getString(R.string.email_invalido)
+            isValid = false
+        }
+
+        if(loginViewModel.userPassword.isBlank()) {
+            tilPassword.error = getString(R.string.informe_uma_senha)
+            isValid = false
+        }
+
+        if(isValid) {
+            loginViewModel.authenticate()
+        }
     }
 }

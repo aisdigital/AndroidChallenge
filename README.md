@@ -9,7 +9,7 @@ We’re rooting for you. 😁
 
 1 - **DO NOT** share your answer with others.
 
-2 - Remember that this challenge it's meant to evaluate your skills, you don't necessarily have to finish **all** the challenge code implementation, we just want to get know you better. 😁
+2 - Remember that this challenge is meant to evaluate your skills, you don't necessarily have to finish **all** the challenge code implementation, we just want to get to know you better. 😁
 
 ## Steps
 
@@ -22,12 +22,12 @@ We’re rooting for you. 😁
 
 ## API
 
-You don't need to use all the following endpoints, but depending on your challenge, you might need to use one or more.
+You don't need to use all of the following endpoints, but depending on your challenge, you might need to use one or more.
 
 Base url is https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io
 
-### List Endpoint
-- If you need to do an API call to create a list on the challenge, use the following Endpoint:
+### Team endpoints
+- If you need to make an API call to create a list on the challenge, use the following Endpoint:
   
   GET
   The path is /teams.
@@ -43,7 +43,7 @@ Base url is https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io
       mantém desde que foi criada."
   }
   
-### Login Endpoint
+### Login Endpoints
  To do the login, you need to use these two endpoints, the first one will give you an auth-token, and you need to use this token on the second request to get the user info.
 
 - If you need to do an API call to login, use the following Endpoint:

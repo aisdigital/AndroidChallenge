@@ -10,6 +10,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
+import br.com.aisdigital.androidchallenge.AboutActivity
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.TeamPresentation
 import br.com.aisdigital.androidchallenge.ViewState
@@ -80,11 +81,14 @@ class TeamsListActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId) {
-            R.id.about -> {}
+            R.id.about -> {
+                val intent = Intent(this, AboutActivity::class.java)
+                startActivity(intent)
+            }
             R.id.logout -> {
                 loginViewModel.logout()
                 val intent = Intent(this, LoginActivity::class.java).apply {
-                    setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
 
                 startActivity(intent)

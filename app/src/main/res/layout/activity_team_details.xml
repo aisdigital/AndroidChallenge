@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".teams.TeamDetailsActivity"
-    android:background="#0C090C">
+    android:background="@color/grey_10">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/team_image_layout"
@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:elevation="@dimen/spacing_5dp"
+        app:cardCornerRadius="@dimen/spacing_10dp"
+        android:layout_margin="@dimen/default_activity_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,8 +23,8 @@
 
         <ImageView
             android:id="@+id/team_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             tools:src="@drawable/demo_logo"
             android:padding="@dimen/default_activity_margin"
@@ -34,10 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/default_activity_margin"
-        android:background="#191919"
+        android:background="@android:color/white"
         android:orientation="vertical"
-        app:cardBackgroundColor="#191919"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="8dp"
+        android:elevation="@dimen/spacing_5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/team_image_layout">
@@ -49,11 +52,18 @@
             android:padding="@dimen/default_activity_margin">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Team Name:"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/grey_80" />
+
+            <TextView
                 android:id="@+id/team_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textColor="@android:color/white"
+                android:textColor="@color/grey_80"
                 android:textStyle="bold"
                 tools:text="76ers" />
 
@@ -66,7 +76,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/city"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/grey_80"
                     android:textSize="18sp" />
 
                 <TextView
@@ -74,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/grey_80"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:text="New Jersey" />
@@ -90,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/conference"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/grey_80"
                     android:textSize="18sp" />
 
                 <TextView
@@ -98,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/grey_80"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:text="EAST" />
@@ -112,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/middle_lorem_ipsum"
-                android:textColor="@android:color/white"
+                android:textColor="@color/grey_80"
                 android:textSize="18sp" />
 
         </LinearLayout>

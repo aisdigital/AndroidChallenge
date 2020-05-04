@@ -19,4 +19,18 @@
     <string name="usuario_e_ou_senha_invalidos">Usuário e/ou senha inválidos</string>
     <string name="email_invalido">Email informado é inválido</string>
     <string name="informe_uma_senha">Informe uma senha</string>
+    <string name="logo">Logo</string>
+    <string name="author_name">Derlandy Belchior</string>
+    <string name="author_country">Brazil</string>
+    <string name="android_developer">Android Developer</string>
+    <string name="android_challenge_ais_digital">Android Challenge - AIS Digital.</string>
+    <string name="ais_address">Brasília - DF</string>
+    <string name="company">Company</string>
+    <string name="download_from_cloud">Download From Cloud</string>
+    <string name="author">Author</string>
+    <string name="license">License</string>
+    <string name="basketball_teams_about">Basketball Teams About</string>
+    <string name="social_address">\@basketballteams</string>
+    <string name="version">Version</string>
+    <string name="version_value">1.0</string>
 </resources>

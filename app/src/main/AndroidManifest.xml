@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".teams.TeamDetailsActivity"/>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -26,6 +25,10 @@
             android:name=".login.LoginActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".teams.TeamsListActivity" />
+        <activity android:name=".teams.TeamDetailsActivity" />
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".teams.TeamsListActivity" />
     </application>
 
 </manifest>

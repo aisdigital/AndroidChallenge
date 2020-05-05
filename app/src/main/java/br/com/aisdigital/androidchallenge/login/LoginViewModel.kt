@@ -9,6 +9,7 @@ import br.com.aisdigital.androidchallenge.domain.login.AuthenticateUser
 import br.com.aisdigital.androidchallenge.domain.login.Login
 import br.com.aisdigital.androidchallenge.domain.login.LoginDataSource
 import br.com.aisdigital.androidchallenge.domain.login.LoginValidator
+import br.com.aisdigital.androidchallenge.domain.user.User
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
@@ -27,6 +28,10 @@ class LoginViewModel(
 
     fun hasUserLoggedIn(): Boolean {
         return dataSource.isUserLoggedIn()
+    }
+
+    fun getUserLoggedIn(): User? {
+        return dataSource.getUser()
     }
 
     fun authenticate() {

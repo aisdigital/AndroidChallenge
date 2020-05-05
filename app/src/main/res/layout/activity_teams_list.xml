@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="end">
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:background="@color/grey_10"
+          tools:context=".teams.TeamsListActivity">
+
+         <androidx.appcompat.widget.Toolbar
+             android:id="@+id/toolbar"
+             android:layout_width="match_parent"
+             android:layout_height="?android:attr/actionBarSize"
+             android:background="@android:color/white"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             android:elevation="2dp" />
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/list"
+             android:layout_width="match_parent"
+             android:layout_height="0dp"
+             android:orientation="vertical"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             android:paddingBottom="2dp"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/toolbar"
+             app:layout_constraintBottom_toBottomOf="parent"
+             tools:itemCount="15"
+             tools:listitem="@layout/list_item" />
+
+         <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"/>
+
+         <include layout="@layout/include_layout_error" android:visibility="gone" android:id="@+id/error" />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <!--navigation drawer menu-->
+      <com.google.android.material.navigation.NavigationView
+          android:id="@+id/nav_view"
+          android:layout_width="220dp"
+          android:layout_height="match_parent"
+          android:layout_gravity="start"
+          android:background="@color/grey_10"
+          android:fitsSystemWindows="false"
+          app:headerLayout="@layout/include_drawer_header_main_menu"
+          app:itemIconTint="@color/grey_95"
+          app:itemTextColor="@color/grey_95"
+          app:menu="@menu/main_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.com.aisdigital.androidchallenge">
+    package="br.com.aisdigital.androidchallenge" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,10 +11,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
+        <activity android:name=".login.UserActivity" >
+        </activity>
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +27,9 @@
             android:name=".login.LoginActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".teams.TeamsListActivity" />
-        <activity android:name=".teams.TeamDetailsActivity" />
+        <activity
+            android:name=".teams.TeamDetailsActivity"
+            android:parentActivityName=".teams.TeamsListActivity"/>
         <activity
             android:name=".AboutActivity"
             android:parentActivityName=".teams.TeamsListActivity" />

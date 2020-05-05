@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
@@ -16,9 +18,10 @@ import br.com.aisdigital.androidchallenge.TeamPresentation
 import br.com.aisdigital.androidchallenge.ViewState
 import br.com.aisdigital.androidchallenge.login.LoginActivity
 import br.com.aisdigital.androidchallenge.login.LoginViewModel
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.layout_error.*
+import kotlinx.android.synthetic.main.activity_teams_list.*
+import kotlinx.android.synthetic.main.include_layout_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class TeamsListActivity : AppCompatActivity() {
 
@@ -29,14 +32,15 @@ class TeamsListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_teams_list)
         setupToolbar()
         setupViewModel()
+        setupNavMenu()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        menuInflater.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.appbar_menu, menu)
 
         val menuItem: MenuItem? = menu?.findItem(R.id.search_icon)
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
@@ -101,6 +105,46 @@ class TeamsListActivity : AppCompatActivity() {
     private fun setupToolbar() {
         toolbar.title = "Teams"
         setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+    }
+
+    private fun setupNavMenu() {
+        val toogle = ActionBarDrawerToggle(
+            this,
+            drawer_layout,
+            toolbar,
+            R.string.open_menu,
+            R.string.close_menu
+        )
+
+        drawer_layout.addDrawerListener(toogle)
+        toogle.syncState()
+        nav_view.setNavigationItemSelectedListener { item ->
+            when(item.itemId) {
+                R.id.about -> {
+                    val intent = Intent(this, AboutActivity::class.java)
+                    startActivity(intent)
+                }
+                R.id.logout -> {
+                    loginViewModel.logout()
+                    val intent = Intent(this, LoginActivity::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+
+                    startActivity(intent)
+                    finish()
+                }
+            }
+            true
+        }
+
+        val user = loginViewModel.getUserLoggedIn()
+        user?.let {
+            val navHeader = nav_view.getHeaderView(0)
+            navHeader.findViewById<TextView>(R.id.name).text = it.name
+            navHeader.findViewById<TextView>(R.id.user_data).text = String.format(Locale.getDefault(), "%s, %s", it.age, it.gender.name)
+        }
     }
 
     private fun setupViewModel() {

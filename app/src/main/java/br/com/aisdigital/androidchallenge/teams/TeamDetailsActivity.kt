@@ -1,7 +1,7 @@
 package br.com.aisdigital.androidchallenge.teams
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.TeamPresentation
 import com.squareup.picasso.Picasso
@@ -23,6 +23,13 @@ class TeamDetailsActivity : AppCompatActivity() {
         teamPresentation = intent.extras?.getParcelable<TeamPresentation>("team")!!
 
         populateView()
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
+        toolbar.title = "Team Details"
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun populateView() {

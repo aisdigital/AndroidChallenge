@@ -26,11 +26,15 @@
     <string name="android_challenge_ais_digital">Android Challenge - AIS Digital.</string>
     <string name="ais_address">Brasília - DF</string>
     <string name="company">Company</string>
-    <string name="download_from_cloud">Download From Cloud</string>
+    <string name="download_from_cloud">View on Github</string>
     <string name="author">Author</string>
     <string name="license">License</string>
     <string name="basketball_teams_about">Basketball Teams About</string>
     <string name="social_address">\@basketballteams</string>
     <string name="version">Version</string>
     <string name="version_value">1.0</string>
+    <string name="user_data_separator">,</string>
+    <string name="open_menu">Open menu</string>
+    <string name="close_menu">Close menu</string>
+    <string name="team_name">Team Name:</string>
 </resources>

@@ -39,9 +39,9 @@ class CachedLogin(private val context: Context) : LoginDataSource {
     override fun save(user: User) {
         val editor = defaultSharedPreferences.edit()
         editor.putBoolean(USER_LOGGED_IN, true)
-        editor.putString("name", user.name)
-        editor.putInt("age", user.age)
-        editor.putString("gender", user.gender.name)
+        editor.putString(USER_NAME, user.name)
+        editor.putInt(USER_AGE, user.age)
+        editor.putString(USER_GENDER, user.gender.name)
         editor.apply()
     }
 

@@ -26,7 +26,7 @@
         <activity
             android:name=".login.LoginActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".teams.TeamsListActivity" />
+        <activity android:name=".teams.TeamsListActivity" android:launchMode="singleTop" />
         <activity
             android:name=".teams.TeamDetailsActivity"
             android:parentActivityName=".teams.TeamsListActivity"/>

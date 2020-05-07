@@ -68,7 +68,10 @@
                             android:contentDescription="@string/app_name"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/logo" />
+                            android:paddingLeft="@dimen/spacing_10dp"
+                            android:paddingRight="@dimen/spacing_10dp"
+                            android:tint="@color/grey_40"
+                            android:src="@drawable/ic_logo" />
 
                         <View
                             android:layout_width="@dimen/spacing_15dp"

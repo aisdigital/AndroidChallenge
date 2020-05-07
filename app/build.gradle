@@ -62,10 +62,19 @@ dependencies {
     implementation dependencies.koinViewModel
     implementation dependencies.koinScope
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
     testImplementation testDependencies.junit
     testImplementation testDependencies.junitExt
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.assertJCore
+    testImplementation testDependencies.coroutineTest
+    testImplementation testDependencies.androidxTestCore
+    testImplementation testDependencies.androidxArchTest
+
     androidTestImplementation testDependencies.runner
+    androidTestImplementation testDependencies.androidxTestCore
+    androidTestImplementation testDependencies.androidxTestExt
+    androidTestImplementation testDependencies.androidxTestRules
     androidTestImplementation testDependencies.espresso
+    androidTestImplementation testDependencies.mockitoAndroid
 }

@@ -20,7 +20,7 @@ class TeamDetailsActivity : AppCompatActivity() {
         }
 
         actionBar?.title = "Team Details"
-        teamPresentation = intent.extras?.getParcelable<TeamPresentation>("team")!!
+        teamPresentation = intent.extras?.getParcelable("team")!!
 
         populateView()
         setupToolbar()
@@ -35,6 +35,8 @@ class TeamDetailsActivity : AppCompatActivity() {
     private fun populateView() {
         Picasso.get()
         .load(teamPresentation.image)
+        .error(R.drawable.logo_primary_color)
+        .placeholder(R.drawable.logo_primary_color)
         .into(team_image)
 
         team_name.text = teamPresentation.name

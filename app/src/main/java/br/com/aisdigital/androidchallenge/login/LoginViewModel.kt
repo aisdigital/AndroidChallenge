@@ -45,10 +45,6 @@ class LoginViewModel(
                 try {
                     val result = usecase.doAuthentication(loginEntity)
 
-                    if(!loginValidator.isAuthenticated(result)) {
-                        throw Exception("Não foi possível realizar o login. Verifique o usuário e a senha digitados.")
-                    }
-
                     getUserByLogin(result)
 
                 } catch(e: Throwable) {

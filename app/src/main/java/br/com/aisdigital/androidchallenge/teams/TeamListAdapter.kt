@@ -23,9 +23,16 @@ class TeamListAdapter : RecyclerView.Adapter<TeamListAdapter.TeamViewHolder>() {
     inner class TeamViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)) {
 
         fun bind(presentation: TeamPresentation) = with(itemView) {
-            Picasso.get()
+
+            val picassoBuilder = Picasso.Builder(itemView.context)
+            picassoBuilder.listener { _, _, exception ->
+                exception.printStackTrace()
+            }
+            picassoBuilder.build()
                 .load(presentation.image)
                 .fit()
+                .error(R.drawable.logo_primary_color)
+                .placeholder(R.drawable.logo_primary_color)
                 .into(itemView.image)
 
             name.text = presentation.name

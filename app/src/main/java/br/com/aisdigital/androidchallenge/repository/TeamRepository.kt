@@ -24,13 +24,13 @@ class TeamRepository(private val service: TeamService) : TeamDataContract, SafeR
         val auth = postAuth(login.email, login.password)
 
         if (auth.status == RequestStatus.SUCCESS) {
-            val login = getLogin(auth.data?.token.orEmpty())
-
-            if (login.status == RequestStatus.SUCCESS) {
-                return DataResult(
-                    status = RequestStatus.SUCCESS,
-                    data = login.data
-                )
+            getLogin(auth.data?.token.orEmpty()).run {
+                if (status == RequestStatus.SUCCESS) {
+                    return DataResult(
+                        status = RequestStatus.SUCCESS,
+                        data = data
+                    )
+                }
             }
         }
 

@@ -4,4 +4,6 @@
     <string name="login_email">E-mail</string>
     <string name="login_password">Senha</string>
     <string name="login_button">Login</string>
+    <string name="detail_city">Cidade: %s</string>
+    <string name="detail_conference">Conferência: %s</string>
 </resources>

@@ -11,7 +11,7 @@ import retrofit2.http.Query
 
 interface TeamService {
 
-    @GET("posts")
+    @GET("teams")
     suspend fun getTeams(): Response<List<Team>>
 
     @POST("auth")

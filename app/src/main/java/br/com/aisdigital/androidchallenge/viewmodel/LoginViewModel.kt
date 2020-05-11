@@ -23,7 +23,6 @@ class LoginViewModel(private val repository: TeamRepository, private val router:
                 }
             }
         }
-
     }
 
 }

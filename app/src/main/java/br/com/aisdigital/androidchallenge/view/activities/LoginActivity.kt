@@ -1,5 +1,7 @@
 package br.com.aisdigital.androidchallenge.view.activities
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.com.aisdigital.androidchallenge.BR
@@ -26,5 +28,11 @@ class LoginActivity : AppCompatActivity() {
         bindingContentView(R.layout.activity_login).apply {
             setVariable(BR.viewModel, viewModel)
         }
+    }
+
+    companion object {
+
+        fun getIntent(context: Context): Intent = Intent(context, LoginActivity::class.java)
+
     }
 }

@@ -19,12 +19,11 @@ abstract class SafeRequest {
                     RequestStatus.SUCCESS,
                     this as T
                 )
-            } ?: run {
-                DataResult(
-                    status = RequestStatus.ERROR,
-                    errorMessage = NULL_ERROR
-                )
-            }
+            } ?: DataResult(
+                status = RequestStatus.ERROR,
+                errorMessage = NULL_ERROR
+            )
+
         } else {
             DataResult(
                 status = RequestStatus.ERROR,

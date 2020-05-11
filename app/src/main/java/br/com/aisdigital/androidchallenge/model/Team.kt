@@ -1,23 +1,11 @@
 package br.com.aisdigital.androidchallenge.model
 
-import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import com.squareup.moshi.Json
 
-@Parcelize
-class Team(
-    val name: String,
-    val city: String,
-    val conference: String,
-    val imageUrl: String,
-    val description: String
-) : Parcelable {
-
-    constructor(data: TeamData) : this(
-        name = data.name,
-        city = data.city,
-        conference = data.conference,
-        imageUrl = data.imageUrl,
-        description = data.description
-    )
-
-}
+data class Team(
+    @Json(name = "name") val name: String,
+    @Json(name = "city") val city: String,
+    @Json(name = "conference") val conference: String,
+    @Json(name = "teamImageUrl") val imageUrl: String,
+    @Json(name = "description") val description: String
+)

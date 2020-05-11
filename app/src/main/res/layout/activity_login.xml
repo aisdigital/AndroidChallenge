@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activities.HomeActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="br.com.aisdigital.androidchallenge.viewmodel.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:padding="48dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aLogin_ivImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/aLogin_ilEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/login_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aLogin_ivImage">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:text="@={viewModel.login.email}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/aLogin_ilPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/login_password"
+            app:layout_constraintEnd_toEndOf="@+id/aLogin_ilEmail"
+            app:layout_constraintStart_toStartOf="@+id/aLogin_ilEmail"
+            app:layout_constraintTop_toBottomOf="@+id/aLogin_ilEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:text="@={viewModel.login.password}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/aLogin_btLogin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorAccent"
+            android:onClick="@{() -> viewModel.doLogin()}"
+            android:text="@string/login_button"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/aLogin_ilPassword"
+            app:layout_constraintTop_toBottomOf="@+id/aLogin_ilPassword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

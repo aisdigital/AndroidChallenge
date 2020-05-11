@@ -6,7 +6,7 @@ import br.com.aisdigital.androidchallenge.model.Team
 import br.com.aisdigital.androidchallenge.repository.TeamRepository
 import kotlinx.coroutines.launch
 
-class TeamListViewModel(private val repository: TeamRepository) : BaseViewModel(),
+class HomeViewModel(private val repository: TeamRepository) : BaseViewModel(),
     LifecycleObserver {
     val teamList: LiveData<List<Team>>
         get() = _teamList

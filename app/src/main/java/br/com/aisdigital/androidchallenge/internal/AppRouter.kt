@@ -1,6 +1,7 @@
 package br.com.aisdigital.androidchallenge.internal
 
 import androidx.fragment.app.FragmentActivity
+import br.com.aisdigital.androidchallenge.extensions.swipeLeftTransition
 import br.com.aisdigital.androidchallenge.model.Team
 import br.com.aisdigital.androidchallenge.model.UserInfo
 import br.com.aisdigital.androidchallenge.view.activities.DetailActivity
@@ -24,6 +25,7 @@ class AppRouter(private val activity: FragmentActivity?) {
     fun goToDetail(team: Team) {
         activity?.run {
             startActivity(DetailActivity.getIntent(this, team))
+            swipeLeftTransition()
         }
     }
 

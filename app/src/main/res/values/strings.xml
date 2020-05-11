@@ -4,6 +4,7 @@
     <string name="login_email">E-mail</string>
     <string name="login_password">Senha</string>
     <string name="login_button">Login</string>
+    <string name="login_password_helper">Mín. 4 e máx. 8 caracteres</string>
     <string name="detail_city">Cidade: %s</string>
     <string name="detail_conference">Conferência: %s</string>
 </resources>

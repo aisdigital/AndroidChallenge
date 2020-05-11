@@ -2,8 +2,9 @@ package br.com.aisdigital.androidchallenge.view.activities
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.aisdigital.androidchallenge.BR
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.adapter.TeamListAdapter
@@ -15,6 +16,7 @@ import br.com.aisdigital.androidchallenge.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -44,6 +46,12 @@ class HomeActivity : AppCompatActivity() {
     private fun setupRecycler() {
         aHome_rvTeams.apply {
             adapter = this@HomeActivity.adapter
+            addItemDecoration(
+                DividerItemDecoration(
+                    this.context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
         }
     }
 

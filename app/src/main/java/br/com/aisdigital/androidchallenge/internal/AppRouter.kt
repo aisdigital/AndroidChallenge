@@ -4,27 +4,27 @@ import androidx.fragment.app.FragmentActivity
 import br.com.aisdigital.androidchallenge.extensions.swipeLeftTransition
 import br.com.aisdigital.androidchallenge.model.Team
 import br.com.aisdigital.androidchallenge.model.UserInfo
-import br.com.aisdigital.androidchallenge.view.activities.DetailActivity
-import br.com.aisdigital.androidchallenge.view.activities.HomeActivity
-import br.com.aisdigital.androidchallenge.view.activities.LoginActivity
+import br.com.aisdigital.androidchallenge.view.activities.*
 
 class AppRouter(private val activity: FragmentActivity?) {
 
     fun goToLogin() {
-        activity?.run {
-            startActivity(LoginActivity.getIntent(this))
-        }
+        activity?.startLoginActivity()
     }
 
     fun goToHome(userInfo: UserInfo) {
-        activity?.run {
-            startActivity(HomeActivity.getIntent(this, userInfo))
+        activity?.startHomeActivity(userInfo)
+    }
+
+    fun goToProfile(userInfo: UserInfo?) {
+        userInfo?.let {
+            activity?.startProfileActivity(it)
         }
     }
 
     fun goToDetail(team: Team) {
         activity?.run {
-            startActivity(DetailActivity.getIntent(this, team))
+            startDetailActivity(team)
             swipeLeftTransition()
         }
     }

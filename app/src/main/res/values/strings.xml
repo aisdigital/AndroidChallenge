@@ -7,4 +7,6 @@
     <string name="login_password_helper">Mín. 4 e máx. 8 caracteres</string>
     <string name="detail_city">Cidade: %s</string>
     <string name="detail_conference">Conferência: %s</string>
+    <string name="profile_age_label">Idade:</string>
+    <string name="profile_age_text">%s anos</string>
 </resources>

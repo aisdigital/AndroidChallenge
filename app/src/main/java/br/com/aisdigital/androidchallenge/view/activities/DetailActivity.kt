@@ -1,9 +1,9 @@
 package br.com.aisdigital.androidchallenge.view.activities
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import br.com.aisdigital.androidchallenge.BR
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.extensions.bindingContentView
@@ -45,12 +45,15 @@ class DetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val EXTRA_TEAM = "extra_team"
-
-        fun getIntent(context: Context, team: Team): Intent =
-            Intent(context, DetailActivity::class.java).putExtra(
-                EXTRA_TEAM, team
-            )
+        const val EXTRA_TEAM = "extra_team"
     }
 
+}
+
+fun FragmentActivity.startDetailActivity(team: Team) {
+    startActivity(
+        Intent(this, DetailActivity::class.java).putExtra(
+            DetailActivity.EXTRA_TEAM, team
+        )
+    )
 }

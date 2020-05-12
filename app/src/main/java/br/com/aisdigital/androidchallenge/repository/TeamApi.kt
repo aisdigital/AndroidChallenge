@@ -11,7 +11,7 @@ class TeamApi {
     companion object {
 
         private const val BASE_URL = "https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io/"
-        private const val TIMEOUT: Long = 5
+        private const val TIMEOUT: Long = 10
 
         private fun getHttpClient(): OkHttpClient.Builder = OkHttpClient.Builder()
             .connectTimeout(TIMEOUT, TimeUnit.SECONDS)

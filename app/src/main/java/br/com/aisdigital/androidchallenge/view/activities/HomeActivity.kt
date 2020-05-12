@@ -1,9 +1,10 @@
 package br.com.aisdigital.androidchallenge.view.activities
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.aisdigital.androidchallenge.BR
 import br.com.aisdigital.androidchallenge.R
@@ -16,7 +17,6 @@ import br.com.aisdigital.androidchallenge.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
-
 
 class HomeActivity : AppCompatActivity() {
 
@@ -39,7 +39,11 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setupBinding() {
         bindingContentView(R.layout.activity_home).apply {
+            setVariable(
+                BR.profileClick,
+                View.OnClickListener { router.goToProfile(intent?.getParcelableExtra(EXTRA_USER_INFO)) })
             setVariable(BR.viewModel, viewModel)
+            lifecycleOwner = this@HomeActivity
         }
     }
 
@@ -66,10 +70,16 @@ class HomeActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val EXTRA_USER_INFO = "extra_user_info"
-
-        fun getIntent(context: Context, userInfo: UserInfo): Intent =
-            Intent(context, HomeActivity::class.java).putExtra(EXTRA_USER_INFO, userInfo)
+        const val EXTRA_USER_INFO = "extra_user_info"
     }
 
+}
+
+fun FragmentActivity.startHomeActivity(userInfo: UserInfo) {
+    this.startActivity(
+        Intent(this, HomeActivity::class.java).putExtra(
+            HomeActivity.EXTRA_USER_INFO,
+            userInfo
+        )
+    )
 }

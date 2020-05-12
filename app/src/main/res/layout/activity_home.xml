@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="profileClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
             name="viewModel"
             type="br.com.aisdigital.androidchallenge.viewmodel.HomeViewModel" />
 
@@ -38,6 +42,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:backgroundTint="@android:color/white"
+                android:onClick="@{profileClick}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_profile" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -55,9 +71,9 @@
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="@{viewModel.mainLoaderVisibility}"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:visibility="@{viewModel.mainLoaderVisibility}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

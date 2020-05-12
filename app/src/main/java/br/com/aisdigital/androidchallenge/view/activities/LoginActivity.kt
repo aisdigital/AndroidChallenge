@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import br.com.aisdigital.androidchallenge.BR
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.extensions.bindingContentView
@@ -44,9 +45,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
+}
 
-        fun getIntent(context: Context): Intent = Intent(context, LoginActivity::class.java)
-
-    }
+fun FragmentActivity.startLoginActivity() {
+    this.startActivity(Intent(this, LoginActivity::class.java))
 }

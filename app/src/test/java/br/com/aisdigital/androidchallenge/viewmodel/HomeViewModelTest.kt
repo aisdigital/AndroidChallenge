@@ -37,7 +37,7 @@ class HomeViewModelTest {
     @Test
     fun `when an error occurs in the request then the error must be visible and the other components are not`() {
         sut.run {
-            changeState(RequestStatus.LOADING)
+            changeState(RequestStatus.ERROR)
 
             assertEquals(View.GONE, mainLoaderVisibility.value)
             assertEquals(View.VISIBLE, errorVisibility.value)
@@ -49,7 +49,7 @@ class HomeViewModelTest {
     @Test
     fun `when you loaded the data then the content should be visible and the other components not`() {
         sut.run {
-            changeState(RequestStatus.LOADING)
+            changeState(RequestStatus.SUCCESS)
 
             assertEquals(View.GONE, mainLoaderVisibility.value)
             assertEquals(View.GONE, errorVisibility.value)

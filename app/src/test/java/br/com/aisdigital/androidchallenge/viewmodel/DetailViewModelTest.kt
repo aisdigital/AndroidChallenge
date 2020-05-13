@@ -21,7 +21,6 @@ class DetailViewModelTest {
         "O maior do Brasil"
     )
 
-
     @Before
     fun setup() {
         sut = DetailViewModel(

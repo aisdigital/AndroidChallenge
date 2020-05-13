@@ -11,6 +11,7 @@ class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        //TODO: Remover para rodar os testes. Não identifiquei o problema ainda
         setupKoin()
     }
 

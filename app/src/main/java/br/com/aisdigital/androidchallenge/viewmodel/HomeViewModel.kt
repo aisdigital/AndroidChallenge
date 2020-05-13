@@ -25,7 +25,7 @@ class HomeViewModel(private val repository: TeamRepository) :
         value = View.VISIBLE
     }
     private val _contendVisibility = MutableLiveData<Int>().apply {
-        value = View.VISIBLE
+        value = View.GONE
     }
     private val _errorVisibility = MutableLiveData<Int>().apply {
         value = View.GONE

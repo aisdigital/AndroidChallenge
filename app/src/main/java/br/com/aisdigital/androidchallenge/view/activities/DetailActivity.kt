@@ -30,6 +30,7 @@ class DetailActivity : AppCompatActivity() {
     private fun setupBinding() {
         bindingContentView(R.layout.activity_detail).apply {
             setVariable(BR.viewModel, viewModel)
+            lifecycleOwner = this@DetailActivity
         }
     }
 

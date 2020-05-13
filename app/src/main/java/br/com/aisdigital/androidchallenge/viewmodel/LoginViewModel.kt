@@ -49,10 +49,10 @@ class LoginViewModel(
         }
     }
 
-    private fun isValidEmail(email: String): Boolean =
+    fun isValidEmail(email: String): Boolean =
         android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
-    private fun isValidPassword(password: String): Boolean = (password.length >= 4)
+    fun isValidPassword(password: String): Boolean = (password.length >= 4)
 
     private fun isValidInfo() {
         buttonConfig.run {
@@ -64,7 +64,7 @@ class LoginViewModel(
         }
     }
 
-    private fun changeStatus(status: RequestStatus) {
+    fun changeStatus(status: RequestStatus) {
         when (status) {
             RequestStatus.LOADING -> buttonConfig.showLoader()
             else -> {

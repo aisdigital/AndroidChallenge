@@ -47,7 +47,7 @@ class HomeViewModel(private val repository: TeamRepository) :
         View.VISIBLE
     } ?: View.GONE
 
-    private fun changeState(state: RequestStatus) {
+    fun changeState(state: RequestStatus) {
         _contendVisibility.value =
             when (state) {
                 RequestStatus.SUCCESS -> getVisibility(true)

@@ -8,5 +8,5 @@ import kotlinx.android.parcel.Parcelize
 data class UserInfo(
     @Json(name = "name") val name: String,
     @Json(name = "age") val age: String,
-    @Json(name = "gender") val gender: String
+    @Json(name = "gender") var gender: String
 ) : Parcelable

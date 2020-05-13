@@ -29,6 +29,7 @@ class ProfileActivity : AppCompatActivity() {
         bindingContentView(R.layout.activity_profile).apply {
             setVariable(BR.closeClick, View.OnClickListener { onBackPressed() })
             setVariable(BR.viewModel, viewModel)
+            lifecycleOwner = this@ProfileActivity
         }
     }
 

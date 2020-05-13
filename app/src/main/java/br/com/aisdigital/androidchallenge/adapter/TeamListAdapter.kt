@@ -42,5 +42,4 @@ class TeamListAdapter(private val router: AppRouter) :
         this.teamList = list.toMutableList()
         notifyDataSetChanged()
     }
-
 }

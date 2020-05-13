@@ -35,7 +35,6 @@ class ProfileActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_USER_INFO = "extra_user_info"
     }
-
 }
 
 fun FragmentActivity.startProfileActivity(userInfo: UserInfo) {

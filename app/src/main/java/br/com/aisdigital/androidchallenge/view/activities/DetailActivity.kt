@@ -47,7 +47,6 @@ class DetailActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_TEAM = "extra_team"
     }
-
 }
 
 fun FragmentActivity.startDetailActivity(team: Team) {

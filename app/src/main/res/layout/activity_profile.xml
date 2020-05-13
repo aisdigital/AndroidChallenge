@@ -18,27 +18,27 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="24dp">
+        android:padding="@dimen/space_large">
 
         <ImageView
             android:id="@+id/aProfile_ivAvatar"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginTop="48dp"
-            android:src="@{viewModel.avatar}"
+            android:layout_marginTop="@dimen/space_extra_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:sourceFromId="@{viewModel.avatar}"
             tools:srcCompat="@drawable/avatar_male" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/aProfile_tvName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/space_medium"
             android:gravity="center"
             android:text="@{viewModel.userInfo.name}"
-            android:textSize="24sp"
+            android:textSize="@dimen/text_size_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aProfile_ivAvatar"
@@ -48,11 +48,11 @@
             android:id="@+id/aProfile_tvAgeLael"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/space_small"
+            android:layout_marginEnd="@dimen/space_small"
             android:gravity="end"
-            android:layout_marginEnd="8dp"
             android:text="@string/profile_age_label"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_medium"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/aProfile_tvAgeText"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{viewModel.age}"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_medium"
             app:layout_constraintBottom_toBottomOf="@+id/aProfile_tvAgeLael"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -73,9 +73,9 @@
 
         <ImageView
             android:id="@+id/aProfile_ivClose"
-            android:onClick="@{closeClick}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{closeClick}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@android:drawable/ic_delete" />

@@ -11,23 +11,31 @@ abstract class SafeRequest {
     }
 
     suspend fun <T : Any> apiRequest(call: suspend () -> Response<T>): DataResult<T> {
-        val response = call.invoke()
 
-        return if (response.isSuccessful) {
-            response.body()?.run {
-                DataResult(
-                    RequestStatus.SUCCESS,
-                    this as T
+        try {
+
+            val response = call.invoke()
+
+            return if (response.isSuccessful) {
+                response.body()?.run {
+                    DataResult(
+                        RequestStatus.SUCCESS,
+                        this as T
+                    )
+                } ?: DataResult(
+                    status = RequestStatus.ERROR,
+                    errorMessage = NULL_ERROR
                 )
-            } ?: DataResult(
+            } else {
+                DataResult(
+                    status = RequestStatus.ERROR,
+                    errorMessage = response.code().toString()
+                )
+            }
+        } catch (ex: Exception) {
+            return DataResult(
                 status = RequestStatus.ERROR,
-                errorMessage = NULL_ERROR
-            )
-
-        } else {
-            DataResult(
-                status = RequestStatus.ERROR,
-                errorMessage = response.code().toString()
+                errorMessage = ex.message.orEmpty()
             )
         }
     }

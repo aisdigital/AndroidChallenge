@@ -34,14 +34,15 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/space_medium">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/aDetail_tvCity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{viewModel.getCity()}"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Cidade: Xablau" />
@@ -51,7 +52,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{viewModel.getConference()}"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_small"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/aDetail_tvCity"
                     tools:text="Conferência: Xablau" />
@@ -60,9 +62,9 @@
                     android:id="@+id/aDetail_tvDescription"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="@dimen/space_minimal"
                     android:text="@{viewModel.team.description}"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_medium"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

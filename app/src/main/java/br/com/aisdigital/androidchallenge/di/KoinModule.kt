@@ -27,7 +27,13 @@ private val repositoryModule = module {
 }
 
 private val viewModelModule = module {
-    viewModel { (router: AppRouter) -> LoginViewModel(repository = get(), router = router) }
+    viewModel { (router: AppRouter) ->
+        LoginViewModel(
+            repository = get(),
+            router = router,
+            resources = androidContext().resources
+        )
+    }
     viewModel { HomeViewModel(repository = get()) }
     viewModel { (userInfo: UserInfo) ->
         ProfileViewModel(

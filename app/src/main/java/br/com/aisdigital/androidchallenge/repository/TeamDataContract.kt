@@ -15,5 +15,4 @@ interface TeamDataContract {
     ): DataResult<Auth>
 
     suspend fun getLogin(token: String): DataResult<UserInfo>
-
 }

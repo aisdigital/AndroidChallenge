@@ -4,7 +4,10 @@ import androidx.fragment.app.FragmentActivity
 import br.com.aisdigital.androidchallenge.extensions.swipeLeftTransition
 import br.com.aisdigital.androidchallenge.model.Team
 import br.com.aisdigital.androidchallenge.model.UserInfo
-import br.com.aisdigital.androidchallenge.view.activities.*
+import br.com.aisdigital.androidchallenge.view.activities.startDetailActivity
+import br.com.aisdigital.androidchallenge.view.activities.startHomeActivity
+import br.com.aisdigital.androidchallenge.view.activities.startLoginActivity
+import br.com.aisdigital.androidchallenge.view.activities.startProfileActivity
 
 class AppRouter(private val activity: FragmentActivity?) {
 
@@ -28,5 +31,4 @@ class AppRouter(private val activity: FragmentActivity?) {
             swipeLeftTransition()
         }
     }
-
 }

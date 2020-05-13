@@ -22,5 +22,4 @@ interface TeamService {
 
     @GET("login")
     suspend fun getLogin(@Header("Authorization") token: String): Response<UserInfo>
-
 }

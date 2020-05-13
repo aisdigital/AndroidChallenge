@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="config"
+            type="br.com.aisdigital.androidchallenge.utils.ButtonConfig" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_minimal_button"
+        android:clickable="@{config.enabled}"
+        android:gravity="center"
+        android:onClick="@{onClick}"
+        app:backgroundFromResource="@{config.buttonColor}"
+        tools:background="@color/colorAccent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{config.text}"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_small"
+            android:visibility="@{config.textVisibility}"
+            tools:text="Login" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{config.loaderVisibility}"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/button_loader" />
+
+    </LinearLayout>
+
+</layout>

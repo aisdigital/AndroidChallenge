@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
 
+    <string name="generic_error">Ocorreu um problema. Tente novamente!</string>
+    <string name="error_button">Tentar novamente</string>
+    <string name="empty_error">Ops! Não encontramos nenhum time :(</string>
+
     <string name="login_email">E-mail</string>
     <string name="login_password">Senha</string>
     <string name="login_button">Login</string>

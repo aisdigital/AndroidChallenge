@@ -14,5 +14,4 @@ class DetailViewModel(private val resources: Resources, val team: Team) : ViewMo
     fun getConference(): String = resources.getString(
         R.string.detail_conference, team.conference
     )
-
 }

@@ -22,8 +22,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:padding="8dp">
+        android:layout_marginBottom="@dimen/space_small"
+        android:padding="@dimen/space_small">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/appCompatImageView"
@@ -39,13 +39,13 @@
             android:id="@+id/appCompatTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginHorizontal="@dimen/space_medium"
+            android:layout_marginTop="@dimen/space_large"
             android:text="@{title}"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_size_medium"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toEndOf="@+id/appCompatImageView"
             app:layout_constraintTop_toTopOf="@+id/appCompatImageView"
@@ -54,11 +54,11 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/space_minimal"
             android:ellipsize="end"
             android:lines="1"
             android:text="@{subtitle}"
-            android:textSize="16sp"
+            android:textSize="@dimen/text_size_small"
             app:layout_constraintEnd_toEndOf="@+id/appCompatTextView"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="@+id/appCompatTextView"

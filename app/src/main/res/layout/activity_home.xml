@@ -35,7 +35,7 @@
                 android:gravity="center"
                 android:text="@string/app_name"
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size_medium"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="@dimen/space_large"
                 android:backgroundTint="@android:color/white"
                 android:onClick="@{profileClick}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -81,6 +81,32 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/main_loader" />
+
+        <include
+            layout="@layout/layout_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.errorVisibility.intValue()}"
+            app:errorMsg="@{@string/generic_error}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aHome_navBar"
+            app:retryClick="@{() -> viewModel.getTeamList()}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/empty_error"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            android:visibility="@{viewModel.emptyVisibility}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/generic_error" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

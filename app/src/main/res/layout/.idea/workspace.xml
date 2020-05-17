@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1efdd26a-b325-4804-9061-236051714f8b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../java/br/com/aisdigital/androidchallenge/model/Team.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../java/br/com/aisdigital/androidchallenge/model/Token.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../java/br/com/aisdigital/androidchallenge/model/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../java/br/com/aisdigital/androidchallenge/remote/util/AuthInterceptor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../drawable-hdpi/basketball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../drawable-hdpi/ic_image_placeholder.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../resources/json/auth.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../java/br/com/aisdigital/androidchallenge/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../../java/br/com/aisdigital/androidchallenge/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-hdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-mdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-xhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-xxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mipmap-xxxhdpi/ic_launcher_round.png" beforeDir="false" afterPath="$PROJECT_DIR$/../mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../test/java/br/com/aisdigital/androidchallenge/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../settings.gradle" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="1c0qhYRF0i1iNf88U3oMhAfpitB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1efdd26a-b325-4804-9061-236051714f8b" name="Default Changelist" comment="" />
+      <created>1589675978012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589675978012</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Celtics",
+    "city": "New Jersey",
+    "conference": "EAST",
+    "teamImageUrl": "https://upload.wikimedia.org/wikipedia/pt/thumb/f/f5/Boston_Celtics.png/200px-Boston_Celtics.png",
+    "description": "O Boston Celtics é uma franquia de basquetebol filiada à National Basketball Association e situada na cidade de Boston, no estado americano de Massachusetts. Fundado em 6 de junho de 1946, é uma das únicas equipes que se mantém desde que foi criada."
+  },
+  {
+    "name": "Nets",
+    "city": "New Jersey",
+    "conference": "EAST",
+    "teamImageUrl":
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brooklyn_Nets_newlogo.svg/200px-Brooklyn_Nets_newlogo.svg.png",
+    "description": "O Brooklyn Nets é um time de basquete profissional americano baseado no bairro de Brooklyn, em Nova York. Os Nets competem na National Basketball Association como membro da Divisão Atlântica da Conferência Leste. A equipe joga seus jogos em casa no Barclays Center"
+  },
+  {
+    "name": "76ers",
+    "city": "Philadelphia",
+    "conference": "EAST",
+    "teamImageUrl":
+    "https://upload.wikimedia.org/wikipedia/pt/thumb/e/e3/Philadelphia_76ers.png/200px-Philadelphia_76ers.png",
+    "description": "O Philadelphia 76ers é um time de basquete profissional americano baseado na área metropolitana da Filadélfia. Os 76ers competem na National Basketball Association como membro da Conferência Leste na Divisão do Atlântico e jogam no Wells Fargo Center."
+  },
+  {
+    "name": "Nuggets",
+    "city": "Denver",
+    "conference": "WEST",
+    "teamImageUrl": "http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/den.png",
+    "description": "O Denver Nuggets é um time de basquete profissional que disputa a National Basketball Association, situado em Denver, Colorado. O time foi fundado em 1967, como um membro da American Basketball Association. O time já foi conhecido como Denver Rockets de 1967 até 1974. As cores do uniforme do time são azul e branco"
+  },
+  {
+    "name": "Timberwolves",
+    "city": "Minnesota",
+    "conference": "WEST",
+    "teamImageUrl":
+    "https://upload.wikimedia.org/wikipedia/pt/thumb/4/44/Minnesota_Timberwolves.png/200px-Minnesota_Timberwolves.png",
+    "description": "O Minnesota Timberwolves é um time de Basquetebol da National Basketball Association localizado em Minneapolis, Minnesota. A franquia foi fundada em 1989 e tem como cores do uniforme o azul, branco, preto, verde e cinza."
+  },
+  {
+    "name": "Thunder",
+    "city": "Oklahoma City",
+    "conference": "WEST",
+    "teamImageUrl":
+    "https://upload.wikimedia.org/wikipedia/pt/thumb/5/5d/Oklahoma_City_Thunder.svg/1118px-Oklahoma_City_Thunder.svg.png",
+    "description": "O Oklahoma City Thunder é uma franquia de basquete profissional norte-americano com sede em Oklahoma City, Oklahoma. Eles jogam na Divisão Noroeste da Conferência Oeste na National Basketball Association, sua arena é a Chesapeake Energy Arena."
+  }
+]

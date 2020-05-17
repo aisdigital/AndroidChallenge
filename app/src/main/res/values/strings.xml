@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="user">User</string>
+    <string name="atencao">atenção</string>
+    <string name="ok">Ok</string>
+    <string name="msg_user_obrigatorio">O preenchimento do User é obrigatório</string>
+    <string name="msg_user_email_invalido">O e-mail informado não é válido</string>
+    <string name="msg_password_obrigatorio">O preenchimento do Password é obrigatório</string>
+    <string name="msg_password_invalido">A sua senha deve conter pelo menos: uma letra maiuscula, um caracter especial e uma letra minúscula ou um número.</string>
+    <string name="msg_erro_http">Ocorreu um erro inesperado, tente novamente em alguns instantes.\n</string>
 </resources>

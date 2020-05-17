@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io</domain>
+        <domain includeSubdomains="true">wikimedia.org</domain>
+        <domain includeSubdomains="true">turner.com</domain>
+    </domain-config>
+</network-security-config>

@@ -1,5 +1,6 @@
 package br.com.aisdigital.androidchallenge.domain
 
+import br.com.aisdigital.androidchallenge.domain.model.UserModel
 import br.com.aisdigital.androidchallenge.repository.RepositoryImpl
 
 
@@ -7,7 +8,7 @@ class LoginUseCase() {
 
     private val repository: RepositoryImpl
 
-//    var onLoginReceived: (use: UserModel) -> Unit = {}
+    var onLoginReceived: (use: UserModel) -> Unit = {}
 
     init {
         repository = RepositoryImpl()
@@ -15,17 +16,18 @@ class LoginUseCase() {
 
     fun login(email: String, senha: String) {
 
-        val tokenR = repository.login(email, senha)
-        repository.onTokenReceived = { token ->
-//            autenticate(token)
-
-        }
-
+        repository.login(email, senha, { autenticate(it) })
 
     }
 
-    private fun autenticate() {
+    fun autenticate(token: String) {
 
+        repository.onUserReceived = {
+            val user = UserModel(it.name, it.age, it.gender)
 
+            onLoginReceived(user)
+        }
+
+        repository.autentication(token)
     }
 }

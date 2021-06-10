@@ -7,9 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.aisdigital.androidchallenge.R
-import br.com.aisdigital.androidchallenge.domain.TeamModel
+import br.com.aisdigital.androidchallenge.domain.model.TeamModel
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.team_item.view.*
 
 class TeamAdapter(
     private val responseList: List<TeamModel>,
@@ -54,7 +53,7 @@ class TeamAdapter(
             descriptionTeam.text = team.description
 
 //            itemView.setOnClickListener{
-//                onItemClick(team)
+//
 //            }
 
         }

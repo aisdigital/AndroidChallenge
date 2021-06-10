@@ -1,18 +1,13 @@
 package br.com.aisdigital.androidchallenge.view
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.aisdigital.androidchallenge.R
-import br.com.aisdigital.androidchallenge.domain.TeamModel
+import br.com.aisdigital.androidchallenge.domain.model.TeamModel
 import br.com.aisdigital.androidchallenge.presentation.MainViewModel
 import br.com.aisdigital.androidchallenge.view.adapters.TeamAdapter
 
@@ -26,8 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         setObservers()
         viewModel.getTeams()
-
-
     }
 
 
@@ -43,11 +36,8 @@ class MainActivity : AppCompatActivity() {
 
             adapter = TeamAdapter(list) {
 
-
             }
         }
 
     }
-
-
 }

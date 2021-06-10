@@ -1,6 +1,6 @@
-package br.com.aisdigital.androidchallenge.domain
+package br.com.aisdigital.androidchallenge.repository.model
 
-data class TeamModel(
+data class TeamResponse(
     val name: String,
     val city: String,
     val conference: String,

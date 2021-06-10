@@ -1,24 +1,32 @@
 package br.com.aisdigital.androidchallenge.domain
 
+import br.com.aisdigital.androidchallenge.domain.model.TeamModel
 import br.com.aisdigital.androidchallenge.repository.RepositoryImpl
 
-class TeamUseCase() {
-    private val repository: RepositoryImpl
+class TeamUseCase {
+    private val repository: RepositoryImpl = RepositoryImpl()
 
-    init {
-        repository = RepositoryImpl()
-    }
+    var onListReceived: (List<TeamModel>) -> Unit = {}
 
-    fun getTeamList(): List<TeamModel>{
-        val finalTeamList = mutableListOf<TeamModel>()
-        val teamList = repository.getTeamsList()
+    fun getTeamList() {
+        repository.apply {
 
-        teamList?.forEach {
-                val teamView = TeamModel(it.name,it.city,it.conference,it.teamImageUrl,it.description)
-                finalTeamList.add(teamView)
+            onTeamListReceived = {
+                val teamList = mutableListOf<TeamModel>()
+                it?.forEach {
+                    teamList.add(
+                        TeamModel(
+                            it.name,
+                            it.city,
+                            it.conference,
+                            it.teamImageUrl,
+                            it.description
+                        )
+                    )
+                }
+                onListReceived(teamList)
+            }
+            getTeamsList()
         }
-
-        return finalTeamList
     }
-
 }

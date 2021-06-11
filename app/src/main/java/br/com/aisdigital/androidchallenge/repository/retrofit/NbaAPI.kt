@@ -14,6 +14,4 @@ class NbaAPI {
 
     fun createNbaAPI(retrofit: Retrofit): NbaService =
         retrofit.create((NbaService::class.java))
-
-
 }

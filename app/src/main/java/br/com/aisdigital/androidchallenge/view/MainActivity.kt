@@ -38,11 +38,9 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-
         setObservers()
         viewModel.getTeams()
     }
-
 
     private fun setObservers() {
         viewModel.teamList.observe(this) {
@@ -58,8 +56,5 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
-
     }
-
-
 }

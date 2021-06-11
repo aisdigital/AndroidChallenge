@@ -21,18 +21,11 @@ class MainViewModel : ViewModel() {
 
         viewModelScope.launch(Dispatchers.IO) {
             useCase.apply {
-
-
                 onListReceived = {
                     _teamList.postValue(it)
                 }
                 getTeamList()
-
             }
-
-
         }
     }
-
-
 }

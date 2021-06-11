@@ -29,7 +29,6 @@ class RepositoryImpl {
                 onTeamListReceived(teamList)
             }
         }
-
     }
 
     fun login(email: String, password: String, onTokenReceived: (token: String) -> Unit) {

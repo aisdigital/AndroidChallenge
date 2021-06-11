@@ -3,8 +3,7 @@ package br.com.aisdigital.androidchallenge.domain
 import br.com.aisdigital.androidchallenge.domain.model.TeamModel
 import br.com.aisdigital.androidchallenge.repository.RepositoryImpl
 
-class TeamUseCase {
-    private val repository: RepositoryImpl = RepositoryImpl()
+class TeamUseCase(val repository: RepositoryImpl = RepositoryImpl()) {
 
     var onListReceived: (List<TeamModel>) -> Unit = {}
 

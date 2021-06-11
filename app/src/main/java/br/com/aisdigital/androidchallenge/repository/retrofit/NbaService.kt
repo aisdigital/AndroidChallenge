@@ -22,10 +22,4 @@ interface NbaService {
         @Header("x-auth-token") token: String
     ): Call<User>
 
-
-    // fazer um request no primeiro usando post
-
-    // get com tokem que voltar
-
-
 }

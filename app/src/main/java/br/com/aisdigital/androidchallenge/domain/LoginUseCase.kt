@@ -17,7 +17,6 @@ class LoginUseCase() {
     fun login(email: String, senha: String) {
 
         repository.login(email, senha, { autenticate(it) })
-
     }
 
     fun autenticate(token: String) {

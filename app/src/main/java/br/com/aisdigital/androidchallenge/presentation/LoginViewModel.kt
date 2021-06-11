@@ -14,14 +14,10 @@ class LoginViewModel : ViewModel() {
 
     private val useCase: LoginUseCase = LoginUseCase()
 
-
     private val _user: MutableLiveData<UserModel> = MutableLiveData()
-
-//    private val _login: MutableLiveData<LoginModel> = MutableLiveData()
 
     val user: LiveData<UserModel>
         get() = _user
-
 
     fun login(email: String, senha: String) {
 
@@ -35,20 +31,4 @@ class LoginViewModel : ViewModel() {
             }
         }
     }
-
-
-//    fun autentication(token: String) {
-//
-//        viewModelScope.launch(Dispatchers.IO) {
-//            useCase.apply {
-//
-//                onLoginReceived = {
-//                    _user.postValue(it)
-//                }
-//                autenticate(token)
-//            }
-//        }
-//    }
-
-
 }

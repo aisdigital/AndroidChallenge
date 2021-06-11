@@ -20,7 +20,6 @@ class TeamAdapter(
             .inflate(R.layout.team_item, parent, false)
 
         return TeamHolder(view)
-
     }
 
     override fun getItemCount(): Int {
@@ -51,13 +50,6 @@ class TeamAdapter(
             conferenceTeam.text = team.conference
 
             descriptionTeam.text = team.description
-
-//            itemView.setOnClickListener{
-//
-//            }
-
         }
     }
-
-
 }

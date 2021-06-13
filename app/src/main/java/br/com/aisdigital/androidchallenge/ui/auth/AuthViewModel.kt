@@ -1,13 +1,12 @@
-package br.com.aisdigital.androidchallenge.auth
+package br.com.aisdigital.androidchallenge.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.aisdigital.androidchallenge.network.Resource
-import br.com.aisdigital.androidchallenge.repository.AuthRepository
-import br.com.aisdigital.androidchallenge.responses.AuthResponse
-import br.com.aisdigital.androidchallenge.responses.LoginResponse
+import br.com.aisdigital.androidchallenge.data.network.Resource
+import br.com.aisdigital.androidchallenge.data.repository.AuthRepository
+import br.com.aisdigital.androidchallenge.data.responses.AuthResponse
 import kotlinx.coroutines.launch
 
 class AuthViewModel(
@@ -18,10 +17,6 @@ class AuthViewModel(
     val authResponse: LiveData<Resource<AuthResponse>>
         get() = _authResponse
 
-    private val _loginResponse: MutableLiveData<Resource<LoginResponse>> = MutableLiveData()
-    val loginResponse: LiveData<Resource<LoginResponse>>
-        get() = _loginResponse
-
     fun auth(
         email: String,
         password: String
@@ -29,10 +24,8 @@ class AuthViewModel(
         _authResponse.value = repository.auth(email, password)
     }
 
-    fun login(
-        token: String
-    ) = viewModelScope.launch {
-        _loginResponse.value = repository.login(token)
+    fun saveAuthToken(token: String) = viewModelScope.launch {
+        repository.saveAuthToken(token)
     }
 
 }

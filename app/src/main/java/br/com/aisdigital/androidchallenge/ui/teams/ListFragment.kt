@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.auth
+package br.com.aisdigital.androidchallenge.ui.teams
 
 import android.os.Bundle
 import android.view.LayoutInflater

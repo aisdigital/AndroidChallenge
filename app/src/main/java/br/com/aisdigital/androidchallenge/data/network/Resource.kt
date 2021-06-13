@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.network
+package br.com.aisdigital.androidchallenge.data.network
 
 import okhttp3.ResponseBody
 

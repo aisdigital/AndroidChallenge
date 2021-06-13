@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.ui
+package br.com.aisdigital.androidchallenge.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import br.com.aisdigital.androidchallenge.network.RemoteDataSource
-import br.com.aisdigital.androidchallenge.repository.BaseRepository
+import br.com.aisdigital.androidchallenge.data.UserPreferences
+import br.com.aisdigital.androidchallenge.data.network.RemoteDataSource
+import br.com.aisdigital.androidchallenge.data.repository.BaseRepository
 
 abstract class BaseFragment<VM : ViewModel, B : ViewBinding, R : BaseRepository> : Fragment() {
 
+    protected lateinit var userPreferences: UserPreferences
     protected lateinit var binding: B
     protected lateinit var viewModel: VM
     protected val remoteDataSource = RemoteDataSource()
@@ -22,6 +24,7 @@ abstract class BaseFragment<VM : ViewModel, B : ViewBinding, R : BaseRepository>
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        userPreferences = UserPreferences(requireContext())
         binding = getFragmentBinding(inflater, container)
         val factory = ViewModelFactory(getFragmentRepository())
         viewModel = ViewModelProvider(this, factory).get(getViewModel())

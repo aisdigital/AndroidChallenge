@@ -1,6 +1,6 @@
-package br.com.aisdigital.androidchallenge.repository
+package br.com.aisdigital.androidchallenge.data.repository
 
-import br.com.aisdigital.androidchallenge.network.Resource
+import br.com.aisdigital.androidchallenge.data.network.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException

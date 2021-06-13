@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.responses
+package br.com.aisdigital.androidchallenge.data.responses
 
 data class TeamsResponse(
     val city: String,

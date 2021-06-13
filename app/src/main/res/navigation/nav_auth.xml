@@ -6,14 +6,8 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/listFragment"
-        android:name="br.com.aisdigital.androidchallenge.auth.ListFragment"
-        android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
-
-    <fragment
         android:id="@+id/loginFragment"
-        android:name="br.com.aisdigital.androidchallenge.auth.LoginFragment"
+        android:name="br.com.aisdigital.androidchallenge.ui.auth.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
 

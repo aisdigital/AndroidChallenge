@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.network
+package br.com.aisdigital.androidchallenge.data.network
 
 import br.com.aisdigital.androidchallenge.BuildConfig
 import okhttp3.OkHttpClient

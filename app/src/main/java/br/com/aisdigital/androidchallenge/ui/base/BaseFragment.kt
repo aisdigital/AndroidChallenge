@@ -1,23 +1,40 @@
 package br.com.aisdigital.androidchallenge.ui.base
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import androidx.viewbinding.ViewBinding
 import br.com.aisdigital.androidchallenge.data.UserPreferences
 import br.com.aisdigital.androidchallenge.data.network.RemoteDataSource
 import br.com.aisdigital.androidchallenge.data.repository.BaseRepository
 
-abstract class BaseFragment<VM : ViewModel, B : ViewBinding, R : BaseRepository> : Fragment() {
+abstract class BaseFragment<VM : ViewModel, B : ViewBinding, R : BaseRepository> : Fragment(),
+    LifecycleObserver {
 
     protected lateinit var userPreferences: UserPreferences
     protected lateinit var binding: B
     protected lateinit var viewModel: VM
     protected val remoteDataSource = RemoteDataSource()
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+    fun onCreated() {
+        Log.i("tag", "reached the State.Created")
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        lifecycle.addObserver(this)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        lifecycle.removeObserver(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -1,6 +1,5 @@
 package br.com.aisdigital.androidchallenge.ui.base
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import br.com.aisdigital.androidchallenge.data.repository.AuthRepository

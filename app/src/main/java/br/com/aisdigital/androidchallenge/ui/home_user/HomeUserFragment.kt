@@ -1,6 +1,6 @@
 package br.com.aisdigital.androidchallenge.ui.home_user
 
-import android.os.Bundle
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -10,50 +10,55 @@ import br.com.aisdigital.androidchallenge.data.network.AuthApi
 import br.com.aisdigital.androidchallenge.data.network.Resource
 import br.com.aisdigital.androidchallenge.data.repository.HomeRepository
 import br.com.aisdigital.androidchallenge.databinding.FragmentHomeUserBinding
+import br.com.aisdigital.androidchallenge.ui.ActivityLifeCycleObserver
 import br.com.aisdigital.androidchallenge.ui.base.BaseFragment
 import br.com.aisdigital.androidchallenge.ui.teams.TeamListAdapter
 import br.com.aisdigital.androidchallenge.ui.visible
 
 class HomeUserFragment : BaseFragment<HomeViewModel, FragmentHomeUserBinding, HomeRepository>() {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        activity?.lifecycle?.addObserver(ActivityLifeCycleObserver {
+            viewModel.login(userPreferences.authToken.toString())
+            val adapter = TeamListAdapter()
+            binding.recyclerViewTeams.layoutManager = LinearLayoutManager(requireContext())
+            binding.recyclerViewTeams.adapter = adapter
+            viewModel.getTeamList()
+            binding.progressbar.visible(true)
+            hideView()
 
-        viewModel.login(userPreferences.authToken.toString())
-        val adapter = TeamListAdapter()
-        binding.recyclerViewTeams.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewTeams.adapter = adapter
-        viewModel.getTeamList()
-        binding.progressbar.visible(true)
-        hideView()
+            viewModel.loginResponse.observe(viewLifecycleOwner, {
+                binding.progressbar.visible(false)
+                when (it) {
+                    is Resource.Success -> {
+                        //  Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                        binding.nameUser.text =
+                            requireContext().getString(R.string.name, it.value.name)
+                        binding.ageUser.text =
+                            requireContext().getString(R.string.age, it.value.age)
+                        binding.genderUser.text =
+                            requireContext().getString(R.string.gender, it.value.gender)
+                    }
+                    is Resource.Failure -> {
+                        Toast.makeText(requireContext(), "User Failure", Toast.LENGTH_LONG).show()
+                    }
+                }
+            })
 
-        viewModel.loginResponse.observe(viewLifecycleOwner, {
-            binding.progressbar.visible(false)
-            when (it) {
-                is Resource.Success -> {
-                    //  Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
-                    binding.nameUser.text = requireContext().getString(R.string.name, it.value.name)
-                    binding.ageUser.text = requireContext().getString(R.string.age, it.value.age)
-                    binding.genderUser.text =
-                        requireContext().getString(R.string.gender, it.value.gender)
+            viewModel.teamResponse.observe(viewLifecycleOwner, {
+                when (it) {
+                    is Resource.Success -> {
+                        //  Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
+                        showView()
+                        adapter.setData(it.value)
+                    }
+                    is Resource.Failure -> {
+                        Toast.makeText(requireContext(), "Team List Failure", Toast.LENGTH_LONG)
+                            .show()
+                    }
                 }
-                is Resource.Failure -> {
-                    Toast.makeText(requireContext(), "User Failure", Toast.LENGTH_LONG).show()
-                }
-            }
-        })
-
-        viewModel.teamResponse.observe(viewLifecycleOwner, {
-            when (it) {
-                is Resource.Success -> {
-                    //  Toast.makeText(requireContext(), it.toString(), Toast.LENGTH_LONG).show()
-                    showView()
-                    adapter.setData(it.value)
-                }
-                is Resource.Failure -> {
-                    Toast.makeText(requireContext(), "Team List Failure", Toast.LENGTH_LONG).show()
-                }
-            }
+            })
         })
     }
 

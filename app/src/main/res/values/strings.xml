@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+    <string name="name">Name: %1$s</string>
+    <string name="e_mail">E-mail:</string>
+    <string name="list_teams">Team List - Challenge Android</string>
+    <string name="login">Login</string>
+    <string name="hello_blank_fragment">List fragment</string>
+    <string name="password">Password</string>
+    <string name="welcome_user">Welcome User: %1$s</string>
+    <string name="age">Age: %1$s</string>
+    <string name="gender">Gender: %1$s</string>
+    <string name="team_list">Team List</string>
+    <string name="conference">Conference:  %1$s</string>
+    <string name="city">City: %1$s</string>
+    <string name="name_team">Name: %1$s</string>
+    <string name="description">Description: %1$s</string>
 </resources>

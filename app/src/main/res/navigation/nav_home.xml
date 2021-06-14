@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/user_home_Fragment">
+
+    <fragment
+        android:id="@+id/user_home_Fragment"
+        android:name="br.com.aisdigital.androidchallenge.ui.home_user.HomeUserFragment"
+        android:label="fragment_home_user"
+        tools:layout="@layout/fragment_home_user" />
+</navigation>

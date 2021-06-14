@@ -2,7 +2,7 @@ package br.com.aisdigital.androidchallenge.data.network
 
 import br.com.aisdigital.androidchallenge.data.responses.AuthResponse
 import br.com.aisdigital.androidchallenge.data.responses.LoginResponse
-import br.com.aisdigital.androidchallenge.data.responses.TeamsResponse
+import br.com.aisdigital.androidchallenge.data.responses.TeamListResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -22,5 +22,5 @@ interface AuthApi {
     ): LoginResponse
 
     @GET("/teams")
-    suspend fun listTeams(): List<TeamsResponse>
+    suspend fun getTeamList(): List<TeamListResponse>
 }

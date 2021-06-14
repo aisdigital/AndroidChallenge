@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.home_user.HomeUserActivity" />
-        <activity android:name=".ui.teams.ListTeamsActivity" />
         <activity android:name=".ui.auth.AuthActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>

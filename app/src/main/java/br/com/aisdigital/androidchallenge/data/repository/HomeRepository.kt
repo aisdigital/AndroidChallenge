@@ -12,4 +12,7 @@ class HomeRepository(
         api.login(token)
     }
 
+    suspend fun getTeamList() = safeApiCall {
+        api.getTeamList()
+    }
 }

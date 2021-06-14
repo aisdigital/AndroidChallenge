@@ -1,6 +1,6 @@
 package br.com.aisdigital.androidchallenge.data.responses
 
-data class TeamsResponse(
+data class TeamListResponse(
     val city: String,
     val conference: String,
     val description: String,

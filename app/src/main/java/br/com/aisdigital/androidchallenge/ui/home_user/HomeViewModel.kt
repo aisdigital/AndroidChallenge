@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import br.com.aisdigital.androidchallenge.data.network.Resource
 import br.com.aisdigital.androidchallenge.data.repository.HomeRepository
 import br.com.aisdigital.androidchallenge.data.responses.LoginResponse
+import br.com.aisdigital.androidchallenge.data.responses.TeamListResponse
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -16,9 +17,18 @@ class HomeViewModel(
     val loginResponse: LiveData<Resource<LoginResponse>>
         get() = _loginResponse
 
+    private val _teamListResponse: MutableLiveData<Resource<List<TeamListResponse>>> =
+        MutableLiveData()
+    val teamResponse: LiveData<Resource<List<TeamListResponse>>>
+        get() = _teamListResponse
+
     fun login(
         token: String
     ) = viewModelScope.launch {
         _loginResponse.value = repository.login(token)
+    }
+
+    fun getTeamList() = viewModelScope.launch {
+        _teamListResponse.value = repository.getTeamList()
     }
 }

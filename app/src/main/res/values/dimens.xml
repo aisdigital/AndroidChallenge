@@ -1,0 +1,7 @@
+<resources>
+
+    <!-- Margin -->
+    <dimen name="default_margin">16dp</dimen>
+    <dimen name="login_margin">24dp</dimen>
+
+</resources>

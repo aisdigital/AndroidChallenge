@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+
+    <!-- Login Strings -->
+    <string name="login_title">Faça seu login, inserindo os dados abaixo:</string>
+    <string name="login_email">Digite seu email</string>
+    <string name="login_password">Digite sua senha</string>
+    <string name="login_button">Entrar</string>
+    <string name="login_empty_field">Este campo é obrigatório</string>
+    <string name="login_failed">Erro ao fazer login!\nTente novamente.</string>
+
+    <!-- Teams Strings -->
+    <string name="welcome">Olá</string>
 </resources>

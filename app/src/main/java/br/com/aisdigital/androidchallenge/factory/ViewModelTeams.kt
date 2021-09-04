@@ -1,9 +1,10 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.factory
 
 
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import br.com.aisdigital.androidchallenge.helpers.Resources
 
 import br.com.aisdigital.androidchallenge.repository.Repository
 import kotlinx.coroutines.Dispatchers
@@ -17,10 +18,19 @@ class ViewModelTeams(
     fun getTeams() = liveData(Dispatchers.IO) {
         emit(Resources.loading(data = null))
         try {
-            emit(Resources.success(data = repository.getTeamsRepository()))
+            emit(
+                Resources.success(
+                    data = repository.getTeamsRepository()
+                )
+            )
 
         } catch (exception: Exception) {
-            emit(Resources.error(data = null, message = exception.message ?: "Error Ocurred"))
+            emit(
+                Resources.error(
+                    data = null,
+                    message = exception.message ?: "Error Ocurred"
+                )
+            )
 
         }
     }
@@ -31,10 +41,19 @@ class ViewModelTeams(
         emit(Resources.loading(data = null))
         try {
 
-            emit(Resources.success(data = repository.getUserRepository(token)))
+            emit(
+                Resources.success(
+                    data = repository.getUserRepository(token)
+                )
+            )
 
         } catch (exception: Exception) {
-            emit(Resources.error(data = null, message = exception.message ?: "Error Ocurred"))
+            emit(
+                Resources.error(
+                    data = null,
+                    message = exception.message ?: "Error Ocurred"
+                )
+            )
 
         }
     }
@@ -44,10 +63,19 @@ class ViewModelTeams(
         emit(Resources.loading(data = null))
         try {
 
-            emit(Resources.success(data = repository.getTokenRepository()))
+            emit(
+                Resources.success(
+                    data = repository.getTokenRepository()
+                )
+            )
 
         } catch (exception: Exception) {
-            emit(Resources.error(data = null, message = exception.message ?: "Error Ocurred"))
+            emit(
+                Resources.error(
+                    data = null,
+                    message = exception.message ?: "Error Ocurred"
+                )
+            )
 
         }
     }

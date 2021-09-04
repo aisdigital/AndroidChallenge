@@ -1,4 +1,4 @@
-package com.example.myapplication.model
+package br.com.aisdigital.androidchallenge.model
 
 import java.io.Serializable
 

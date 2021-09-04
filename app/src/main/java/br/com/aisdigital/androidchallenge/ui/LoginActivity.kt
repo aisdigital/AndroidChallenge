@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.ui
 
 import android.content.Context
 import android.content.Intent
@@ -8,11 +8,11 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
+import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.factory.ViewModelFactory
 import br.com.aisdigital.androidchallenge.factory.ViewModelTeams
 import br.com.aisdigital.androidchallenge.helpers.Status
 import br.com.aisdigital.androidchallenge.repository.Repository
-import br.com.aisdigital.androidchallenge.ui.UserActivity
 
 class LoginActivity : AppCompatActivity() {
     lateinit var buttonLogin: Button

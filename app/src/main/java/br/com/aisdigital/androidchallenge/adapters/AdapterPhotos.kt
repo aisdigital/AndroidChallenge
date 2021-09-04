@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
+import br.com.aisdigital.androidchallenge.R
+import br.com.aisdigital.androidchallenge.model.TeamModel
 
-import com.example.myapplication.R
-import com.example.myapplication.model.TeamModel
 import com.squareup.picasso.Picasso
 
 class AdapterPhotos() : RecyclerView.Adapter<AdapterPhotos.AdapterHolder>() {

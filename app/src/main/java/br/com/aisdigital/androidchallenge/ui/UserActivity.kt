@@ -1,10 +1,12 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import br.com.aisdigital.androidchallenge.MainActivity
+import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.model.User
 
 class UserActivity : AppCompatActivity() {

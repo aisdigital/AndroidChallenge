@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin"
+    android:layout_marginTop="@dimen/margin"
+    android:layout_marginRight="@dimen/margin"
+    android:layout_marginBottom="@dimen/margin"
+    app:cardBackgroundColor="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/xlarge">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="@dimen/large"
+            android:layout_height="@dimen/medium"
+            android:text="@string/app_api_name"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/xmedium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txtDesc"
+      />
+
+        <TextView
+            android:id="@+id/txtDesc"
+            android:layout_width="@dimen/xlarge"
+            android:layout_height="@dimen/large"
+            android:layout_marginTop="@dimen/margin"
+            android:maxLines="3"
+            android:lines="10"
+            android:text="@string/app_api_desc"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/textSize_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <TextView
+            android:id="@+id/txtCity"
+            android:layout_width="@dimen/large"
+            android:layout_height="@dimen/medium"
+           android:text="@string/app_api_city"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/textSize_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDesc"/>
+
+        <TextView
+            android:id="@+id/txtConf"
+            android:layout_width="@dimen/large"
+            android:layout_height="@dimen/medium"
+            android:text="@string/app_api_conf"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="@dimen/textSize_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txtCity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDesc" />
+
+        <ImageView
+            android:id="@+id/teamImageUrl"
+            android:layout_width="@dimen/layout_img"
+            android:layout_height="@dimen/layout_img"
+            app:layout_constraintEnd_toStartOf="@+id/txtDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

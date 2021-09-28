@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+    <string name="app_api_name">[Name]</string>
+    <string name="app_api_desc">[Descrição]</string>
+    <string name="app_api_conf">[Conference]</string>
+    <string name="app_api_city">[City]</string>
+    <string name="app_api_img">[ImgAvatar]</string>
 </resources>

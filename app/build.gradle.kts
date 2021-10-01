@@ -39,8 +39,13 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}")
     implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
-    implementation("androidx.core:core-ktx:${Versions.corektx}")
     implementation("androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}")
+    implementation("androidx.core:core-ktx:${Versions.corektx}")
+    implementation("org.koin:koin-core:${Versions.koin}")
+    implementation("org.koin:koin-android:${Versions.koin}")
+    implementation("org.koin:koin-androidx-viewmodel:${Versions.koin}")
+    implementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
+    implementation("com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}")
 
     testImplementation("junit:junit:${Versions.junit}")
     androidTestImplementation("androidx.test:runner:${Versions.testRunner}")

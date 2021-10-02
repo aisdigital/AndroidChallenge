@@ -8,8 +8,6 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
 
     private const val baseUrl = "https://c526ee5a-a2fb-446c-b242-d5fa13592a1a.mock.pstmn.io/"
-    private const val token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
     private const val DURATION = 60L
 
     private fun getRetrofitInstance(): Retrofit {
@@ -28,7 +26,6 @@ object RetrofitClient {
 
             val newRequest = chain.request()
                 .newBuilder()
-                .header("token", token)
                 .url(newUrl)
                 .build()
             chain.proceed(newRequest)

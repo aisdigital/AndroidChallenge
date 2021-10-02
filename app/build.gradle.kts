@@ -1,7 +1,9 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     id("kotlin-parcelize")
+    id("kotlin-android")
 }
 
 android {
@@ -41,9 +43,12 @@ dependencies {
     implementation("androidx.appcompat:appcompat:${Versions.appCompat}")
     implementation("androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}")
     implementation("androidx.core:core-ktx:${Versions.corektx}")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}")
+    implementation("com.google.code.gson:gson:${Versions.gson}")
     implementation("org.koin:koin-core:${Versions.koin}")
     implementation("org.koin:koin-android:${Versions.koin}")
     implementation("org.koin:koin-androidx-viewmodel:${Versions.koin}")
+    implementation("com.google.android.material:material:${Versions.material}")
     implementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
     implementation("com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}")
 

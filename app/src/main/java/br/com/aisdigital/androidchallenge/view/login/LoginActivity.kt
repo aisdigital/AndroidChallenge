@@ -1,16 +1,14 @@
 package br.com.aisdigital.androidchallenge.view.login
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import androidx.databinding.DataBindingUtil
 import br.com.aisdigital.androidchallenge.BR
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.databinding.ActivityLoginBinding
 import br.com.aisdigital.androidchallenge.di.loadKoinModules
-import br.com.aisdigital.androidchallenge.domain.repository.AuthInteractor
-import br.com.aisdigital.androidchallenge.domain.repository.LoginInteractor
-import br.com.aisdigital.androidchallenge.view.home.HomeActivity
+import br.com.aisdigital.androidchallenge.domain.repository.Router
 import br.com.aisdigital.androidchallenge.viewmodel.login.LoginViewModel
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
@@ -22,12 +20,12 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
-    private val authInteractor: AuthInteractor by inject()
-
-    private val loginInteractor: LoginInteractor by inject()
+    private val router: Router by inject {
+        parametersOf(this)
+    }
 
     private val mViewModel: LoginViewModel by viewModel {
-        parametersOf(authInteractor, loginInteractor)
+        parametersOf(router)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,23 +40,18 @@ class LoginActivity : AppCompatActivity() {
         binding.lifecycleOwner = this@LoginActivity
         binding.setVariable(BR.viewModel, mViewModel)
 
-        setObserver()
+        setEditorAction()
     }
 
-    private fun setObserver() {
-        mViewModel.shouldNavigateToHome.observe(this, {
-            if (it) {
-                navigateToHome()
+    private fun setEditorAction() {
+        binding.loginPasswordInputEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_GO) {
+                mViewModel.onLoginClick()
+                true
+            } else {
+                false
             }
-        })
+        }
     }
 
-    private fun navigateToHome() {
-        val intent = Intent(applicationContext, HomeActivity::class.java)
-        Bundle(1).apply {
-            putParcelable(HomeActivity.HOME_LOGIN_EXTRAS, mViewModel.loginResponse.value)
-            intent.putExtras(this)
-        }
-        startActivity(intent)
-    }
 }

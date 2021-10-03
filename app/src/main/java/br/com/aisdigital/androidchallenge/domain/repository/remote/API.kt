@@ -2,6 +2,7 @@ package br.com.aisdigital.androidchallenge.domain.repository.remote
 
 import br.com.aisdigital.androidchallenge.domain.model.auth.AuthResponse
 import br.com.aisdigital.androidchallenge.domain.model.login.LoginResponse
+import br.com.aisdigital.androidchallenge.domain.model.teams.TeamsResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -20,6 +21,6 @@ interface API {
     ): LoginResponse
 
     @GET("teams")
-    suspend fun getTeams()
+    suspend fun getTeams(): List<TeamsResponse>
 
 }

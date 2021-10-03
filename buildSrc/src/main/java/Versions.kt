@@ -12,6 +12,7 @@ object Versions {
     const val corektx = "1.0.2"
     const val coroutines = "1.3.9"
     const val espresso = "3.2.0"
+    const val glide = "4.11.0"
     const val gradle = "4.2.2"
     const val gson = "2.8.6"
     const val junit = "4.12"

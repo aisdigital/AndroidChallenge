@@ -25,9 +25,13 @@
             app:retryAction="@{() -> viewModel.onLoginClick()}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="@{viewModel.contentVisibility}">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.contentVisibility}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginEmailInputLayout"
@@ -61,8 +65,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/loginEmailInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginPasswordInputEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionGo"
                     android:inputType="textPassword"
                     android:onTextChanged="@{() -> viewModel.onPasswordTextChanged()}"
                     android:text="@={viewModel.passwordInputText}" />
@@ -73,7 +79,7 @@
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_spacing_xx_small"
+                android:layout_marginTop="@dimen/size_spacing_small"
                 android:onClick="@{() -> viewModel.onLoginClick()}"
                 android:text="@string/login_text_button"
                 app:layout_constraintEnd_toEndOf="parent"

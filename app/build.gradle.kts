@@ -44,6 +44,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}")
     implementation("androidx.core:core-ktx:${Versions.corektx}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}")
+    implementation("com.github.bumptech.glide:glide:${Versions.glide}")
     implementation("com.google.code.gson:gson:${Versions.gson}")
     implementation("org.koin:koin-core:${Versions.koin}")
     implementation("org.koin:koin-android:${Versions.koin}")

@@ -12,7 +12,10 @@
     <string name="generic_error_message">Não foi possível obter as informações</string>
 
     <!-- My Loader -->
-    <string name="my_loader_loading_text">Aguarde, carregando as informações…</string>
-    <string name="my_loader_error_text">Ocorreram erros ao carregar as informações</string>
+    <string name="my_loader_loading_text">Aguarde, estamos processando sua requisição…</string>
+    <string name="my_loader_error_text">Ocorreram erros ao processar a sua requisição</string>
     <string name="my_loader_retry_text">Tentar novamente</string>
+
+    <!-- Team -->
+    <string name="team_conference_image_content_description">Ícone da conferência</string>
 </resources>

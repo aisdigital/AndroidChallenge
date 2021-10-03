@@ -1,18 +1,18 @@
 package br.com.aisdigital.androidchallenge.viewmodel.login
 
-import android.content.Intent
 import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.domain.model.RequestState
-import br.com.aisdigital.androidchallenge.domain.model.login.LoginResponse
-import br.com.aisdigital.androidchallenge.domain.repository.AuthInteractor
-import br.com.aisdigital.androidchallenge.domain.repository.LoginInteractor
+import br.com.aisdigital.androidchallenge.domain.repository.interactor.AuthInteractor
+import br.com.aisdigital.androidchallenge.domain.repository.interactor.LoginInteractor
+import br.com.aisdigital.androidchallenge.domain.repository.Router
 import br.com.aisdigital.androidchallenge.viewmodel.BaseViewModel
 import br.com.aisdigital.androidchallenge.domain.utils.isEmailValid
 import br.com.aisdigital.androidchallenge.domain.utils.isPasswordValid
 
 class LoginViewModel(
+    private val router: Router,
     private val authInteractor: AuthInteractor,
     private val loginInteractor: LoginInteractor,
     private val resources: Resources
@@ -22,8 +22,6 @@ class LoginViewModel(
     val emailHelperText = MutableLiveData<String>()
     val passwordInputText = MutableLiveData<String>()
     val passwordHelperText = MutableLiveData<String>()
-    val loginResponse = MutableLiveData<LoginResponse>()
-    val shouldNavigateToHome = MutableLiveData<Boolean>()
 
     init {
         observeAuthInteractor()
@@ -45,8 +43,7 @@ class LoginViewModel(
             requestState.value = it
 
             if (it is RequestState.Success) {
-                loginResponse.postValue(it.result)
-                shouldNavigateToHome.postValue(true)
+                router.navigateToHome(it.result)
             }
         }
     }

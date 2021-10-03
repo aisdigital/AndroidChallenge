@@ -19,6 +19,7 @@ object Versions {
     const val koin = "2.1.6"
     const val kotlin = "1.4.32"
     const val material = "1.4.0"
+    const val multidex = "2.0.1"
     const val retrofit = "2.9.0"
     const val retrofitConverterGson = "2.6.4"
     const val testRunner = "1.2.0"

@@ -50,6 +50,7 @@ dependencies {
     implementation("org.koin:koin-android:${Versions.koin}")
     implementation("org.koin:koin-androidx-viewmodel:${Versions.koin}")
     implementation("com.google.android.material:material:${Versions.material}")
+    implementation("androidx.multidex:multidex:${Versions.multidex}")
     implementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
     implementation("com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}")
 

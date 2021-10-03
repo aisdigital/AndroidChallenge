@@ -10,6 +10,7 @@ import br.com.aisdigital.androidchallenge.domain.repository.remote.API
 import br.com.aisdigital.androidchallenge.domain.repository.remote.RetrofitClient
 import br.com.aisdigital.androidchallenge.viewmodel.home.HomeViewModel
 import br.com.aisdigital.androidchallenge.viewmodel.login.LoginViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.loadKoinModules
@@ -50,9 +51,9 @@ private val interactorModule = module {
 }
 
 private val viewModelModule = module {
-    viewModel { (router: Router) ->
+    viewModel {
         LoginViewModel(
-            router = router,
+            router = get(),
             authInteractor = get(),
             loginInteractor = get(),
             resources = get()
@@ -66,8 +67,8 @@ private val viewModelModule = module {
 }
 
 private val routerModule = module {
-    factory { (activity: AppCompatActivity) ->
-        Router(activity)
+    factory {
+        Router(androidApplication())
     }
 }
 

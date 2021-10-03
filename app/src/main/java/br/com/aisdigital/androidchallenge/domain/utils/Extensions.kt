@@ -1,7 +1,7 @@
 package br.com.aisdigital.androidchallenge.domain.utils
 
-import android.util.Patterns
+import androidx.core.util.PatternsCompat
 
-fun String?.isEmailValid() = !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+fun String?.isEmailValid() = !isNullOrEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(this).matches()
 
 fun String?.isPasswordValid() = !isNullOrEmpty()

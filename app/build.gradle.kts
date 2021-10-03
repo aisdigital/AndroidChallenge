@@ -54,7 +54,9 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:${Versions.retrofit}")
     implementation("com.squareup.retrofit2:converter-gson:${Versions.retrofitConverterGson}")
 
+    testImplementation("androidx.arch.core:core-testing:${Versions.androidCoreTesting}")
     testImplementation("junit:junit:${Versions.junit}")
+    testImplementation("io.mockk:mockk:${Versions.mockk}")
     androidTestImplementation("androidx.test:runner:${Versions.testRunner}")
     androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso}")
 }

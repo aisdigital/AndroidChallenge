@@ -45,7 +45,11 @@ class HomeViewModel(
         getTeams()
     }
 
-    fun getTeams() {
+    fun onRetry() {
+        getTeams()
+    }
+
+    private fun getTeams() {
         teamsInteractor.getTeams()
     }
 

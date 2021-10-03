@@ -7,6 +7,7 @@ object Versions {
     const val versionCode = 1
     const val versionName = "1.0"
 
+    const val androidCoreTesting = "2.1.0"
     const val appCompat = "1.0.2"
     const val constraintLayout = "1.1.3"
     const val corektx = "1.0.2"
@@ -16,6 +17,7 @@ object Versions {
     const val gradle = "4.2.2"
     const val gson = "2.8.6"
     const val junit = "4.12"
+    const val mockk = "1.10.2"
     const val koin = "2.1.6"
     const val kotlin = "1.4.32"
     const val material = "1.4.0"

@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:loaderState="@{viewModel.loaderState}"
-            app:retryAction="@{() -> viewModel.getTeams()}" />
+            app:retryAction="@{() -> viewModel.onRetry()}" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"

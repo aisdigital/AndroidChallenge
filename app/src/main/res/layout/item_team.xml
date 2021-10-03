@@ -48,14 +48,12 @@
 
                 <TextView
                     android:id="@+id/textName"
+                    style="@style/ItemTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:text="@{item.name}"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/size_font_small"
-                    android:textStyle="bold"
                     tools:text="Celtics" />
 
                 <View
@@ -67,6 +65,7 @@
 
                 <TextView
                     android:id="@+id/textCity"
+                    style="@style/ItemBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_spacing_xxx_small"
@@ -74,12 +73,11 @@
                     android:maxLines="1"
                     android:minLines="1"
                     android:text="@{item.city}"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/size_font_x_small"
                     tools:text="Cidade: Boston" />
 
                 <TextView
                     android:id="@+id/textDescription"
+                    style="@style/ItemBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_spacing_xxx_small"
@@ -87,8 +85,6 @@
                     android:maxLines="3"
                     android:minLines="3"
                     android:text="@{item.description}"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/size_font_x_small"
                     tools:text="@tools:sample/lorem[50]" />
 
                 <ImageView

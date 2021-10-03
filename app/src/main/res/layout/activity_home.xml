@@ -43,6 +43,7 @@
 
                 <TextView
                     android:id="@+id/homeUserName"
+                    style="@style/Title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_spacing_xx_small"
@@ -53,6 +54,7 @@
 
                 <TextView
                     android:id="@+id/homeUserAge"
+                    style="@style/Subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/size_spacing_xx_small"
@@ -63,13 +65,23 @@
 
                 <TextView
                     android:id="@+id/homeUserGender"
+                    style="@style/Body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/size_spacing_xx_small"
+                    android:layout_marginTop="@dimen/size_spacing_x_small"
                     android:text="@{viewModel.userGender}"
                     app:layout_constraintStart_toStartOf="@+id/homeUserName"
                     app:layout_constraintTop_toBottomOf="@+id/homeUserAge"
                     tools:text="Gênero: Masculino" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:layout_marginTop="@dimen/size_spacing_x_small"
+                    android:layout_marginBottom="@dimen/size_spacing_x_small"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintStart_toStartOf="@+id/homeUserName"
+                    app:layout_constraintTop_toBottomOf="@+id/homeUserGender" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -79,10 +91,10 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/size_spacing_x_small"
                 android:layout_marginBottom="@dimen/size_spacing_xx_small"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/homeUserInfo"
-                app:layout_constraintBottom_toBottomOf="parent"
                 tools:listitem="@layout/item_team" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

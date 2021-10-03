@@ -18,4 +18,9 @@
 
     <!-- Team -->
     <string name="team_conference_image_content_description">Ícone da conferência</string>
+
+    <!-- Home -->
+    <string name="home_user_text">Usuário: %s</string>
+    <string name="home_age_text">Idade: %s</string>
+    <string name="home_gender_text">Gênero: %s</string>
 </resources>

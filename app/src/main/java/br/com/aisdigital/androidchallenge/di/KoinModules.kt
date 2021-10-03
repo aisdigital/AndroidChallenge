@@ -1,6 +1,5 @@
 package br.com.aisdigital.androidchallenge.di
 
-import androidx.appcompat.app.AppCompatActivity
 import br.com.aisdigital.androidchallenge.domain.model.error.ErrorHandler
 import br.com.aisdigital.androidchallenge.domain.repository.*
 import br.com.aisdigital.androidchallenge.domain.repository.interactor.AuthInteractor
@@ -61,7 +60,8 @@ private val viewModelModule = module {
     }
     viewModel {
         HomeViewModel(
-            teamsInteractor = get()
+            teamsInteractor = get(),
+            resources = get()
         )
     }
 }

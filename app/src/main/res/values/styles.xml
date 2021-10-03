@@ -8,6 +8,30 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="MyLoaderStyle"/>
+    <style name="MyLoaderStyle" />
+
+    <style name="Title">
+        <item name="android:textSize">@dimen/size_font_large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Subtitle">
+        <item name="android:textSize">@dimen/size_font_medium</item>
+    </style>
+
+    <style name="Body">
+        <item name="android:textSize">@dimen/size_font_small</item>
+    </style>
+
+    <style name="ItemTitle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/size_font_small</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemBody">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/size_font_x_small</item>
+    </style>
 
 </resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- SIZE -->
+    <dimen name="size_spacing_large">24.00dp</dimen>
+    <dimen name="size_spacing_small">16.00dp</dimen>
+    <dimen name="size_spacing_x_small">12.00dp</dimen>
+    <dimen name="size_spacing_xx_small">8.00dp</dimen>
+    <dimen name="size_spacing_xxx_small">4.00dp</dimen>
+
+    <!-- FONT SIZE -->
+    <dimen name="size_font_large">28.00sp</dimen>
+    <dimen name="size_font_medium">20.00sp</dimen>
+    <dimen name="size_font_small">16.00sp</dimen>
+    <dimen name="size_font_x_small">12.00sp</dimen>
+
+    <!-- CARD DIMENS -->
+    <dimen name="size_radius_xxx_small">4.00dp</dimen>
+    <dimen name="size_elevation_xx_small">8.00dp</dimen>
+    <dimen name="size_image_width">200.00dp</dimen>
+    <dimen name="size_image_height">200.00dp</dimen>
+    <dimen name="view_height">1.00dp</dimen>
+
+</resources>

@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+
+    <!-- Login -->
+    <string name="login_hint_email">E-mail</string>
+    <string name="login_hint_password">Senha</string>
+    <string name="login_text_button">Login</string>
+    <string name="login_helper_email">O e-mail informado é inválido</string>
+    <string name="login_helper_password">A senha informada é inválida</string>
+
+    <!-- Generic Error -->
+    <string name="generic_error_message">Não foi possível obter as informações</string>
+
+    <!-- My Loader -->
+    <string name="my_loader_loading_text">Aguarde, estamos processando sua requisição…</string>
+    <string name="my_loader_error_text">Ocorreram erros ao processar a sua requisição</string>
+    <string name="my_loader_retry_text">Tentar novamente</string>
+
+    <!-- Team -->
+    <string name="team_conference_image_content_description">Ícone da conferência</string>
+
+    <!-- Home -->
+    <string name="home_user_text">Usuário: %s</string>
+    <string name="home_age_text">Idade: %s</string>
+    <string name="home_gender_text">Gênero: %s</string>
 </resources>

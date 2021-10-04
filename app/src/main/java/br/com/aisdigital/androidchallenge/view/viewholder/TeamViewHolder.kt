@@ -14,9 +14,9 @@ class TeamViewHolder(private val binding: ItemTeamBinding) : RecyclerView.ViewHo
             Glide.with(itemView)
                 .load(team.imageUrl)
                 .centerCrop()
-                .placeholder(R.mipmap.ic_launcher)
-                .error(R.mipmap.ic_launcher)
-                .fallback(R.mipmap.ic_launcher)
+                .placeholder(R.mipmap.ic_launcher_round)
+                .error(R.drawable.nba_logo)
+                .fallback(R.drawable.nba_logo)
                 .into(imageTeam)
         }
     }

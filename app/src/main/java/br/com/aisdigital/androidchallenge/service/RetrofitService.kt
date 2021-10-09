@@ -1,7 +1,7 @@
 package br.com.aisdigital.androidchallenge.service
 
 import Team
-import br.com.aisdigital.androidchallenge.Constants
+import br.com.aisdigital.androidchallenge.utils.Constants
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

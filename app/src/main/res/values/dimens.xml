@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_sheet_default_peek_height">50</dimen>
+    <dimen name="screen_margin_medium">8dp</dimen>
+    <dimen name="elevation_default">8dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="layout_width_small">100dp</dimen>
+    <dimen name="layout_height_small">150dp</dimen>
+    <dimen name="layout_image_small">100dp</dimen>
+    <dimen name="padding_default">8dp</dimen>
+</resources>

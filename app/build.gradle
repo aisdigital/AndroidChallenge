@@ -21,15 +21,44 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding.enabled = true
 }
 
 dependencies {
+    def retrofit_version = "2.9.0"
+    def gson_version = "2.8.8"
+    def lifecycle_version = "2.2.0"
+    def recycle_version = "1.2.1"
+    def cardview_version = "1.0.0"
+    def design_version = "28.0.0"
+    def picasso_version = "2.71828"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    //Img
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+
+    implementation "androidx.recyclerview:recyclerview:$recycle_version"
+    implementation "androidx.cardview:cardview:$cardview_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    implementation "com.android.support:design:$design_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation 'android.arch.core:core-testing:1.6.0'
+    androidTestImplementation 'org.mockito:mockito-core:1.10.19'
 }

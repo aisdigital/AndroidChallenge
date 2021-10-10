@@ -1,7 +1,7 @@
 package br.com.aisdigital.androidchallenge.service
 
-import TeamResponse
-import UserResponse
+import Team
+import User
 import br.com.aisdigital.androidchallenge.utils.Constants
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -13,17 +13,17 @@ import retrofit2.http.Query
 
 interface RetrofitService {
     @GET(Constants.END_POINT_TEAMS)
-    fun getAllTeams(): Call<List<TeamResponse>>
+    fun getAllTeams(): Call<List<Team>>
 
     @POST(Constants.END_POINT_AUTH)
     fun postAuthentication(
         @Query("user_email") userEmail: String,
         @Query("user_password") userPassword: String
-    ): Call<UserResponse>
+    ): Call<User>
 
 
     @GET(Constants.END_POINT_LOGIN)
-    fun getLogin(@Header("x-auth-token") token: String): Call<UserResponse>
+    fun getLogin(@Header("x-auth-token") token: String): Call<User>
 
     companion object {
 

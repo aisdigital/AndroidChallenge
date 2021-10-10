@@ -1,7 +1,6 @@
 package br.com.aisdigital.androidchallenge
 
 import Team
-import TeamResponse
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.aisdigital.androidchallenge.service.Repository
@@ -23,16 +22,16 @@ class TeamViewModel constructor(private val repository: Repository) : ViewModel(
 
     private fun handleApiData() {
         val response = repository.getAllTeams()
-        response.enqueue(object : Callback<List<TeamResponse>> {
+        response.enqueue(object : Callback<List<Team>> {
             override fun onResponse(
-                call: Call<List<TeamResponse>>,
-                response: Response<List<TeamResponse>>
+                call: Call<List<Team>>,
+                response: Response<List<Team>>
             ) {
                 loadFinalized()
-                teamList.postValue(response.body()?.map { it.parseTeam })
+                teamList.postValue(response.body())
             }
 
-            override fun onFailure(call: Call<List<TeamResponse>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Team>>, t: Throwable) {
                 loadFinalized()
                 errorMessage.postValue(t.message)
             }

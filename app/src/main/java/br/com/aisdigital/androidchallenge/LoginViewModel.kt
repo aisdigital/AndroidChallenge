@@ -1,7 +1,6 @@
 package br.com.aisdigital.androidchallenge
 
 import User
-import UserResponse
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.aisdigital.androidchallenge.service.Repository
@@ -12,37 +11,66 @@ import retrofit2.Response
 
 
 class LoginViewModel constructor(private val repository: Repository) : ViewModel() {
-    val userEmail = MutableLiveData<String>()
-    private val userPassword = MutableLiveData<String>()
-    private val errorMessage = MutableLiveData<String>()
+
+    val MINIMUN_DIGITS_PASSWORD = 6
+
+    private lateinit var userEmail : String
+    private lateinit var userPassword : String
+    val errorMessage = MutableLiveData<String>()
+    val invalidEmail = MutableLiveData<Boolean>()
+    val invalidPassword = MutableLiveData<Boolean>()
+    val requiredFields = MutableLiveData<Boolean>()
     private val isLoading = MutableLiveData<Boolean>().apply { false }
 
-    lateinit var user: User
+    private lateinit var user: User
 
-    fun sign() {
-        user = User("asdf")
-        authenticator(user, "123")
+    fun sign(email: String, password: String) {
+
+        this.userEmail = email
+        this.userPassword = password
+
+        if (!isValidateFields())
+            return
+
+        user = User(user.email)
+
+        authenticator()
     }
 
-    private fun validateFields(): Boolean? {
-        return userEmail.value?.isEmailValid()
+    private fun isValidateFields(): Boolean {
 
+        if (userEmail.isEmpty() || userPassword.isEmpty()) {
+            requiredFields.value = true
+            return false
+        }
+
+        if (!userEmail.isEmailValid()) {
+            invalidEmail.value = true
+            return false
+        }
+
+        if (userPassword.length < MINIMUN_DIGITS_PASSWORD) {
+            invalidPassword.value = true
+            return false
+        }
+
+        return true
     }
 
-    private fun authenticator(user: User, password: String) {
+    private fun authenticator() {
         loadInitialized()
         handleApiData()
     }
 
     private fun handleApiData() {
-        val response = repository.postAuthentication(user.age, userPassword.value!!)
-        response.enqueue(object : Callback<UserResponse> {
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+        val response = repository.postAuthentication(user.age, userPassword)
+        response.enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
                 loadFinalized()
                 login(response.body()!!.token)
             }
 
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+            override fun onFailure(call: Call<User>, t: Throwable) {
                 loadFinalized()
                 errorMessage.postValue(t.message)
             }
@@ -52,14 +80,14 @@ class LoginViewModel constructor(private val repository: Repository) : ViewModel
     private fun login(token: String) {
         loadInitialized()
         val response = repository.getLogin(token)
-        response.enqueue(object : Callback<UserResponse> {
-            override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
+        response.enqueue(object : Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
                 loadFinalized()
                 if (response.body() != null)
-                    user = response.body()!!.parseUser
+                    user = response.body()!!
             }
 
-            override fun onFailure(call: Call<UserResponse>, t: Throwable) {
+            override fun onFailure(call: Call<User>, t: Throwable) {
                 loadFinalized()
                 errorMessage.postValue(t.message)
             }

@@ -3,4 +3,7 @@
     <string name="email_edit_label">Email</string>
     <string name="sign_button_label">Sign</string>
     <string name="password_edit_label">Password</string>
+    <string name="txt_label_required">Email and Password Required</string>
+    <string name="label_invalid_email">Invalid Email</string>
+    <string name="label_invalid_password">Invalid Password</string>
 </resources>

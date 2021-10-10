@@ -36,6 +36,4 @@ class TeamAdapter : RecyclerView.Adapter<MainViewHolder>() {
     }
 }
 
-class MainViewHolder(val binding: AdapterTeamBinding) : RecyclerView.ViewHolder(binding.root) {
-
-}
+class MainViewHolder(val binding: AdapterTeamBinding) : RecyclerView.ViewHolder(binding.root)

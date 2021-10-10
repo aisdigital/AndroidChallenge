@@ -5,8 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.aisdigital.androidchallenge.utils.MyViewModelFactory
-import br.com.aisdigital.androidchallenge.R
+import br.com.aisdigital.androidchallenge.utils.ViewModelFactory
 import br.com.aisdigital.androidchallenge.TeamViewModel
 import br.com.aisdigital.androidchallenge.databinding.ActivityMainBinding
 import br.com.aisdigital.androidchallenge.service.Repository
@@ -14,47 +13,65 @@ import br.com.aisdigital.androidchallenge.service.RetrofitService
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: TeamViewModel
+    private lateinit var viewModel: TeamViewModel
 
     private val retrofitService = RetrofitService.getInstance()
 
     private lateinit var binding: ActivityMainBinding
-    val adapter = TeamAdapter()
+    private val adapter = TeamAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        setUi()
+
+        setViewModel()
+
+        handleObservables()
+
+    }
+
+    private fun setUi() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.recyclerview.adapter = adapter
+    }
+
+    private fun setViewModel() {
         viewModel = ViewModelProvider(
-            this,
-            MyViewModelFactory(
+            this, ViewModelFactory(
                 Repository(
                     retrofitService
                 )
             )
-        )
-            .get(
-                TeamViewModel::class.java
-            )
+        ).get(TeamViewModel::class.java)
 
-        binding.recyclerview.adapter = adapter
+        viewModel.getAllMovies()
+    }
 
-        viewModel.teamList.observe(this, Observer { adapter.setTeamsList( it)})
+    private fun handleObservables() {
+        viewModel.teamList.observe(this, Observer { adapter.setTeamsList(it) })
 
-        viewModel.errorMessage.observe(this, Observer {  })
+        viewModel.errorMessage.observe(this, Observer { })
 
         viewModel.isLoading.observe(this, Observer { isLoading ->
             if (isLoading != null) {
                 if (isLoading)
-                     binding.progressbar.visibility = View.VISIBLE
+                    binding.progressbar.visibility = View.VISIBLE
                 else
                     binding.progressbar.visibility = View.GONE
             }
         })
 
-        viewModel.getAllMovies()
-
+        viewModel.errorMessage.observe(this, Observer { errorMsg ->
+            if (errorMsg != null) {
+                binding.errorMessage.text = errorMsg
+                binding.errorMessage.visibility = View.VISIBLE
+            } else {
+                binding.errorMessage.text = errorMsg
+                binding.errorMessage.visibility = View.GONE
+            }
+        })
     }
 }

@@ -1,7 +1,7 @@
 data class Team(
-    val name: String,
-    val city: String,
-    val conference: String,
-    val teamImageUrl: String,
-    val description: String
-)
+    override var name: String = "",
+    override var city: String = "",
+    override var conference: String = "",
+    override var teamImageUrl: String = "",
+    override var description: String = ""
+) : TeamResponse()

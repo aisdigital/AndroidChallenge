@@ -31,9 +31,10 @@ android {
 dependencies {
     def retrofit_version = "2.9.0"
     def gson_version = "2.8.8"
-    def lifecycle_version = "2.2.0";
-    def recycle_version = "1.2.1";
-    def cardview_version = "1.0.0";
+    def lifecycle_version = "2.2.0"
+    def recycle_version = "1.2.1"
+    def cardview_version = "1.0.0"
+    def design_version = "28.0.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -46,6 +47,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recycle_version"
     implementation "androidx.cardview:cardview:$cardview_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    implementation "com.android.support:design:$design_version"
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

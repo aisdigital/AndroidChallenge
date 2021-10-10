@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.aisdigital.androidchallenge.databinding.AdapterTeamBinding
+import com.squareup.picasso.Picasso
 
 class TeamAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
@@ -28,6 +29,7 @@ class TeamAdapter : RecyclerView.Adapter<MainViewHolder>() {
         holder.binding.city.text = team.city
         holder.binding.conference.text = team.conference
         holder.binding.description.text = team.description
+        Picasso.get().load(team.teamImageUrl).into(holder.binding.image);
 
     }
 

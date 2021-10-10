@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.ui.activities.login
 
 import User
 import androidx.lifecycle.MutableLiveData

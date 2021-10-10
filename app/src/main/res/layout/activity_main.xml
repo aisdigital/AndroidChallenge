@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="br.com.aisdigital.androidchallenge.TeamViewModel" />
+            type="br.com.aisdigital.androidchallenge.ui.activities.teams.TeamViewModel" />
     </data>
 
     <FrameLayout

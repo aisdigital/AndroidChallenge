@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.ui
+package br.com.aisdigital.androidchallenge.ui.activities.teams
 
 import Team
 import android.view.LayoutInflater
@@ -20,7 +20,9 @@ class TeamAdapter : RecyclerView.Adapter<MainViewHolder>() {
         val inflater = LayoutInflater.from(parent.context)
 
         val binding = AdapterTeamBinding.inflate(inflater, parent, false)
-        return MainViewHolder(binding)
+        return MainViewHolder(
+            binding
+        )
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {

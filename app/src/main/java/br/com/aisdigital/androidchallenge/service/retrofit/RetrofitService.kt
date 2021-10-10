@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.service
+package br.com.aisdigital.androidchallenge.service.retrofit
 
 import Team
 import User
@@ -36,7 +36,8 @@ interface RetrofitService {
                     .baseUrl(Constants.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
-                retrofitService = retrofit.create(RetrofitService::class.java)
+                retrofitService = retrofit.create(
+                    RetrofitService::class.java)
             }
             return retrofitService!!
         }

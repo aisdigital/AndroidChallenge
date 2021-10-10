@@ -1,4 +1,4 @@
-package br.com.aisdigital.androidchallenge.ui
+package br.com.aisdigital.androidchallenge.ui.activities.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.aisdigital.androidchallenge.LoginViewModel
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.databinding.ActivityLoginBinding
 import br.com.aisdigital.androidchallenge.service.Repository
-import br.com.aisdigital.androidchallenge.service.RetrofitService
-import br.com.aisdigital.androidchallenge.utils.ViewModelFactory
+import br.com.aisdigital.androidchallenge.service.retrofit.RetrofitService
+import br.com.aisdigital.androidchallenge.ui.activities.teams.TeamsActivity
+import br.com.aisdigital.androidchallenge.ui.activities.ViewModelFactory
 
 class LoginActivity : AppCompatActivity() {
 
@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
 
         viewModel.isAuthenticated.observe(this, Observer { isInvalid ->
             isInvalid.let {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, TeamsActivity::class.java)
                 startActivity(intent)
             }
         })
@@ -94,7 +94,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setViewModel() {
         viewModel = ViewModelProvider(
-            this, ViewModelFactory(
+            this,
+            ViewModelFactory(
                 Repository(
                     retrofitService
                 )

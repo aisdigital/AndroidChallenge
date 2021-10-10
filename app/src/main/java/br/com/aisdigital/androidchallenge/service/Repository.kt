@@ -1,5 +1,7 @@
 package br.com.aisdigital.androidchallenge.service
 
+import br.com.aisdigital.androidchallenge.service.retrofit.RetrofitService
+
 class Repository constructor(private val retrofitService: RetrofitService) {
 
     fun getAllTeams() = retrofitService.getAllTeams()

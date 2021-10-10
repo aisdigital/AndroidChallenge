@@ -1,24 +1,24 @@
-package br.com.aisdigital.androidchallenge.ui
+package br.com.aisdigital.androidchallenge.ui.activities.teams
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import br.com.aisdigital.androidchallenge.utils.ViewModelFactory
-import br.com.aisdigital.androidchallenge.TeamViewModel
+import br.com.aisdigital.androidchallenge.ui.activities.ViewModelFactory
 import br.com.aisdigital.androidchallenge.databinding.ActivityMainBinding
 import br.com.aisdigital.androidchallenge.service.Repository
-import br.com.aisdigital.androidchallenge.service.RetrofitService
+import br.com.aisdigital.androidchallenge.service.retrofit.RetrofitService
 
-class MainActivity : AppCompatActivity() {
+class TeamsActivity : AppCompatActivity() {
 
     private lateinit var viewModel: TeamViewModel
 
     private val retrofitService = RetrofitService.getInstance()
 
     private lateinit var binding: ActivityMainBinding
-    private val adapter = TeamAdapter()
+    private val adapter =
+        TeamAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setViewModel() {
         viewModel = ViewModelProvider(
-            this, ViewModelFactory(
+            this,
+            ViewModelFactory(
                 Repository(
                     retrofitService
                 )

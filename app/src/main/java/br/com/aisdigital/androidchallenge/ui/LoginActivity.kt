@@ -1,5 +1,6 @@
 package br.com.aisdigital.androidchallenge.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -33,30 +34,40 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleObservables() {
+
+        viewModel.isLoading.observe(this, Observer { isLoading ->
+            isLoading.let {
+                if (isLoading) binding.progressbar.visibility = View.VISIBLE
+                else binding.progressbar.visibility = View.GONE
+            }
+        })
+
         viewModel.invalidEmail.observe(this, Observer { isInvalid ->
-            if (isInvalid != null) {
-                if (isInvalid)
-                    binding.txtUserEmail.error = getString(R.string.label_invalid_email)
-                else
-                    binding.txtUserEmail.error = null
+            isInvalid.let {
+                if (isInvalid) binding.txtUserEmail.error = getString(R.string.label_invalid_email)
+                else binding.txtUserEmail.error = null
             }
         })
 
         viewModel.invalidPassword.observe(this, Observer { isInvalid ->
-            if (isInvalid != null) {
-                if (isInvalid)
-                    binding.txtUserPassword.error = getString(R.string.label_invalid_password)
-                else
-                    binding.txtUserPassword.error = null
+            isInvalid.let {
+                if (isInvalid) binding.txtUserPassword.error =
+                    getString(R.string.label_invalid_password)
+                else binding.txtUserPassword.error = null
+            }
+        })
+
+        viewModel.isAuthenticated.observe(this, Observer { isInvalid ->
+            isInvalid.let {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
         })
 
         viewModel.requiredFields.observe(this, Observer { isRequired ->
-            if (isRequired != null) {
-                if (isRequired)
-                    binding.txtRequiredFields.visibility = View.VISIBLE
-                else
-                    binding.txtRequiredFields.visibility = View.GONE
+            isRequired.let {
+                if (isRequired) binding.txtRequiredFields.visibility = View.VISIBLE
+                else binding.txtRequiredFields.visibility = View.GONE
             }
         })
     }
@@ -67,14 +78,18 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
 
-            binding.txtRequiredFields.visibility = View.GONE
-
-            viewModel.sign(
-                binding.txtUserEmail.text.toString(),
-                binding.txtUserPassword.text.toString()
-            )
+            handleSign()
         }
 
+    }
+
+    private fun handleSign() {
+        binding.txtRequiredFields.visibility = View.GONE
+
+        viewModel.sign(
+            binding.txtUserEmail.text.toString(),
+            binding.txtUserPassword.text.toString()
+        )
     }
 
     private fun setViewModel() {

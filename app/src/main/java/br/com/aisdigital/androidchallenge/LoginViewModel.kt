@@ -20,7 +20,8 @@ class LoginViewModel constructor(private val repository: Repository) : ViewModel
     val invalidEmail = MutableLiveData<Boolean>()
     val invalidPassword = MutableLiveData<Boolean>()
     val requiredFields = MutableLiveData<Boolean>()
-    private val isLoading = MutableLiveData<Boolean>().apply { false }
+    val isAuthenticated = MutableLiveData<Boolean>().apply { false }
+    val isLoading = MutableLiveData<Boolean>().apply { false }
 
     private lateinit var user: User
 
@@ -32,7 +33,7 @@ class LoginViewModel constructor(private val repository: Repository) : ViewModel
         if (!isValidateFields())
             return
 
-        user = User(user.email)
+        user = User(userEmail)
 
         authenticator()
     }
@@ -83,8 +84,11 @@ class LoginViewModel constructor(private val repository: Repository) : ViewModel
         response.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 loadFinalized()
-                if (response.body() != null)
+                if (response.body() != null){
+                    isAuthenticated.postValue(true)
                     user = response.body()!!
+                }
+
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {

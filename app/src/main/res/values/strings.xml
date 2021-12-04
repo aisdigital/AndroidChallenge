@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="email_password_empty">Please enter your email and password</string>
+    <string name="please_enter_a_valid_email">Please enter a valid email</string>
+    <string name="password_must_be_at_least_6_characters">Password must be at least 6 characters</string>
+    <string name="team_image">Team Image</string>
+    <string name="greeting_text">Hello %s, here are your favorite basketball teams</string>
+    <string name="logout">Logout</string>
 </resources>

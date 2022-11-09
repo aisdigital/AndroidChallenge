@@ -4,29 +4,123 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.*
-import kotlin.coroutines.CoroutineContext
+import br.com.aisdigital.androidchallenge.R
+import br.com.aisdigital.androidchallenge.data.model.ResultApi
+import br.com.aisdigital.androidchallenge.domain.AuthenticateUsecase
+import br.com.aisdigital.androidchallenge.domain.LoginUsecase
+import br.com.aisdigital.androidchallenge.domain.ValidateEmailUsecase
+import kotlinx.coroutines.launch
+import org.koin.java.KoinJavaComponent.inject
+
+class LoginViewModel : ViewModel() {
+    private val loadingState: LoadingState by lazy {
+        LoadingState()
+    }
+    private val validationErrorState: ValidationErrorState by lazy {
+        ValidationErrorState()
+    }
+    private val loginResultState: LoginResultState by lazy {
+        LoginResultState()
+    }
+
+    private val loadingStateMutableLiveData = MutableLiveData<LoadingState>()
+    val loadingStateLiveData: LiveData<LoadingState> get() = loadingStateMutableLiveData
+
+    private val validationErrorMutableLiveData = MutableLiveData<ValidationErrorState>()
+    val validationErrorLiveData: LiveData<ValidationErrorState> get() = validationErrorMutableLiveData
+
+    private val loginResultMutableLiveData = MutableLiveData<LoginResultState>()
+    val loginResultLiveData: LiveData<LoginResultState> get() = loginResultMutableLiveData
+
+    private val loginUsecase: LoginUsecase by inject(LoginUsecase::class.java)
+    private val authenticateUsecase: AuthenticateUsecase by inject(AuthenticateUsecase::class.java)
+    private val validateEmailUsecase: ValidateEmailUsecase by inject(ValidateEmailUsecase::class.java)
+
+    fun authenticate(email: String?, password: String?) {
+        if (validateFields(email, password)) {
+            viewModelScope.launch {
+                setLoadingState(true)
+                when (authenticateUsecase.authenticate(email!!, password!!)) {
+                    is ResultApi.Success -> {
+                        login()
+                    }
+                    is ResultApi.Error -> {
+                        setLoadingState(isLoading = false)
+                        setLoginResultState(success = false)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun login() {
+        viewModelScope.launch {
+            when (loginUsecase.login()) {
+                is ResultApi.Success -> {
+                    setLoginResultState(success = true)
+                }
+                is ResultApi.Error -> {
+                    setLoginResultState(success = false)
+                }
+            }
+        }
+    }
+
+    private fun validateFields(email: String?, password: String?): Boolean {
+        resetValidationErrorState()
+        var isValid = true
+        if (!validateEmailUsecase.isValidEmail(email)) {
+            setEmailValidationErrorState(R.string.email_validation_error)
+            isValid = false
+        }
+        if (password.isNullOrEmpty()) {
+            setPasswordValidationErrorState(R.string.password_validation_error)
+            isValid = false
+        }
+        return isValid
+    }
+
+    private fun setLoginResultState(success: Boolean) {
+        loginResultState.success = success
+        loginResultMutableLiveData.value = loginResultState
+    }
+
+    private fun setLoadingState(isLoading: Boolean) {
+        loadingState.isLoading = isLoading
+        loadingStateMutableLiveData.value = loadingState
+    }
+
+    private fun setEmailValidationErrorState(
+        emailValidationErrorResourceId: Int,
+    ) {
+        validationErrorState.emailValidationErrorResourceId = emailValidationErrorResourceId
+        validationErrorMutableLiveData.value = validationErrorState
+    }
+
+    private fun setPasswordValidationErrorState(
+        passwordValidationErrorResourceId: Int,
+    ) {
+        validationErrorState.passwordValidationErrorResourceId = passwordValidationErrorResourceId
+        validationErrorMutableLiveData.value = validationErrorState
+    }
+
+    private fun resetValidationErrorState() {
+        validationErrorState.emailValidationErrorResourceId = R.string.empty
+        validationErrorState.passwordValidationErrorResourceId = R.string.empty
+        validationErrorMutableLiveData.value = validationErrorState
+    }
+}
 
 data class LoadingState(
-    val isLoading: Boolean = true
+    var isLoading: Boolean = false
 )
 
 data class ValidationErrorState(
-    val emailValidationError: String,
-    val passwordValidationError: String
+    var emailValidationErrorResourceId: Int = R.string.empty,
+    var passwordValidationErrorResourceId: Int = R.string.empty
 )
 
-data class ResultState(
-    val success: Boolean
+data class LoginResultState(
+    var success: Boolean = false,
+    var errorMessageResourceId: Int = R.string.api_error_message
 )
-
-class LoginViewModel : ViewModel() {
-    private val loadingState = MutableLiveData<LoadingState>()
-    val loadingStateLiveData : LiveData<LoadingState> get() = loadingState
-
-    private val validationErrorState = MutableLiveData<ValidationErrorState>()
-    val validationErrorLiveData : LiveData<ValidationErrorState> get() = validationErrorState
-
-    private val resultState = MutableLiveData<ResultState>()
-    val resultStateLiveData : LiveData<ResultState> get() = resultState
-}

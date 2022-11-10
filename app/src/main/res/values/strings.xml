@@ -6,5 +6,9 @@
     <string name="email_validation_error">Invalid e-mail.</string>
     <string name="password_validation_error">Invalid password.</string>
     <string name="empty">""</string>
-    <string name="api_error_message">"There was an error while performing the request"</string>
+    <string name="success_message">Login Successful. Welcome!</string>
+    <string name="api_error_message">There was an error while performing the request</string>
+    <string name="hello_client_name">Hello %1s!</string>
+
+    <string name="reset">Reset</string>
 </resources>

@@ -7,11 +7,17 @@ import androidx.lifecycle.viewModelScope
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.data.model.ResultApi
 import br.com.aisdigital.androidchallenge.domain.AuthenticateUsecase
+import br.com.aisdigital.androidchallenge.domain.ClearLoginLocalDataUsecase
 import br.com.aisdigital.androidchallenge.domain.LoginUsecase
 import br.com.aisdigital.androidchallenge.domain.ValidateEmailUsecase
 import kotlinx.coroutines.launch
 
-class LoginViewModel(var loginUsecase: LoginUsecase, var authenticateUsecase: AuthenticateUsecase, var validateEmailUsecase: ValidateEmailUsecase) : ViewModel() {
+class LoginViewModel(
+    private val loginUsecase: LoginUsecase,
+    private val authenticateUsecase: AuthenticateUsecase,
+    private val validateEmailUsecase: ValidateEmailUsecase,
+    private val clearLoginLocalDataUsecase: ClearLoginLocalDataUsecase
+) : ViewModel() {
     private val loadingState: LoadingState by lazy {
         LoadingState()
     }
@@ -50,10 +56,10 @@ class LoginViewModel(var loginUsecase: LoginUsecase, var authenticateUsecase: Au
 
     private fun login() {
         viewModelScope.launch {
-            when (loginUsecase.login()) {
+            when (val result = loginUsecase.login()) {
                 is ResultApi.Success -> {
                     setLoadingState(isLoading = false)
-                    setLoginResultState(success = true)
+                    setLoginResultState(success = true, result.data.name)
                 }
                 is ResultApi.Error -> {
                     setLoadingState(isLoading = false)
@@ -61,6 +67,10 @@ class LoginViewModel(var loginUsecase: LoginUsecase, var authenticateUsecase: Au
                 }
             }
         }
+    }
+
+    fun clearLocalData() {
+        clearLoginLocalDataUsecase.clearLocalData()
     }
 
     private fun validateFields(email: String?, password: String?): Boolean {
@@ -77,12 +87,13 @@ class LoginViewModel(var loginUsecase: LoginUsecase, var authenticateUsecase: Au
         return isValid
     }
 
-    private fun setLoginResultState(success: Boolean) {
+    private fun setLoginResultState(success: Boolean, clientName: String? = null) {
         loginResultState.success = success
+        loginResultState.clientName = clientName
         loginResultMutableLiveData.value = loginResultState
     }
 
-    fun setLoadingState(isLoading: Boolean) {
+    private fun setLoadingState(isLoading: Boolean) {
         loadingState.isLoading = isLoading
         loadingStateMutableLiveData.value = loadingState
     }
@@ -119,5 +130,7 @@ data class ValidationErrorState(
 
 data class LoginResultState(
     var success: Boolean = false,
+    var clientName: String? = null,
+    var successMessageResourceId: Int = R.string.success_message,
     var errorMessageResourceId: Int = R.string.api_error_message
 )

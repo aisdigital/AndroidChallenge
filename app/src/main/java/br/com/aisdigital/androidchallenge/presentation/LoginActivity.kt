@@ -3,8 +3,6 @@ package br.com.aisdigital.androidchallenge.presentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.databinding.ActivityLoginBinding
@@ -18,19 +16,45 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = DataBindingUtil.setContentView(this, R.layout.activity_login)
-        supportActionBar?.title = "Login"
 
+        displayInitialState()
+        observeLiveDatas()
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        bind.resetButton.setOnClickListener {
+            viewModel.clearLocalData()
+            displayInitialState()
+        }
+
+        bind.loginButton.setOnClickListener {
+            viewModel.authenticate(
+                bind.emailTextInputEditText.text?.toString(),
+                bind.passwordTextInputEditText.text?.toString()
+            )
+        }
+    }
+
+    private fun observeLiveDatas() {
         viewModel.loginResultStateLiveData.observe(this) { loginResultState ->
-            if (loginResultState.success) {
-                Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
-            } else {
-                Toast.makeText(this, "Login Error", Toast.LENGTH_LONG).show()
+            when (loginResultState.success) {
+                true -> {
+                    displaySuccessState(
+                        loginResultState.clientName ?: getString(R.string.empty),
+                        loginResultState.successMessageResourceId
+                    )
+                }
+                false -> {
+                    displayErrorState(loginResultState.errorMessageResourceId)
+
+                }
             }
         }
         viewModel.loadingStateLiveData.observe(this) { loadingState ->
             when (loadingState.isLoading) {
-                true -> bind.progressBar.visibility = View.VISIBLE
-                false -> bind.progressBar.visibility = View.GONE
+                true -> displayLoadingState()
+                false -> displayInitialState()
             }
         }
 
@@ -40,12 +64,49 @@ class LoginActivity : AppCompatActivity() {
             bind.passwordTextInputLayout.error =
                 getString(validationErrorState.passwordValidationErrorResourceId)
         }
+    }
 
-        bind.loginButton.setOnClickListener {
-            viewModel.authenticate(
-                bind.emailTextInputEditText.text.toString(),
-                bind.passwordTextInputEditText.text.toString()
-            )
-        }
+
+    private fun displayInitialState() {
+        supportActionBar?.title = getString(R.string.login)
+        displayFormsAndButtonView(View.VISIBLE)
+        displayLoadingView(View.GONE)
+        displayResultView(View.GONE)
+    }
+
+    private fun displayLoadingState() {
+        displayLoadingView(View.VISIBLE)
+        displayFormsAndButtonView(View.GONE)
+        displayResultView(View.GONE)
+    }
+
+    private fun displaySuccessState(clientName: String, successMessageResourceId: Int) {
+        supportActionBar?.title = getString(R.string.hello_client_name, clientName)
+        bind.resultContentTextView.text = getString(successMessageResourceId)
+        displayResultView(View.VISIBLE)
+        displayLoadingView(View.GONE)
+        displayFormsAndButtonView(View.GONE)
+    }
+
+    private fun displayErrorState(errorMessageResourceId: Int) {
+        bind.resultContentTextView.text = getString(errorMessageResourceId)
+        displayResultView(View.VISIBLE)
+        displayLoadingView(View.GONE)
+        displayFormsAndButtonView(View.GONE)
+    }
+
+    private fun displayFormsAndButtonView(visibility: Int) {
+        bind.emailTextInputLayout.visibility = visibility
+        bind.passwordTextInputLayout.visibility = visibility
+        bind.loginButton.visibility = visibility
+    }
+
+    private fun displayLoadingView(visibility: Int) {
+        bind.progressBar.visibility = visibility
+    }
+
+    private fun displayResultView(visibility: Int) {
+        bind.resultContentTextView.visibility = visibility
+        bind.resetButton.visibility = visibility
     }
 }

@@ -3,6 +3,7 @@ package br.com.aisdigital.androidchallenge
 import android.app.Application
 import br.com.aisdigital.androidchallenge.data.*
 import br.com.aisdigital.androidchallenge.domain.AuthenticateUsecase
+import br.com.aisdigital.androidchallenge.domain.ClearLoginLocalDataUsecase
 import br.com.aisdigital.androidchallenge.domain.LoginUsecase
 import br.com.aisdigital.androidchallenge.domain.ValidateEmailUsecase
 import br.com.aisdigital.androidchallenge.presentation.LoginViewModel
@@ -21,7 +22,8 @@ class AndroidChallengeApplication : Application() {
 
     private fun setupKoin() {
         val module = module {
-            viewModel { LoginViewModel(get(), get(), get()) }
+            viewModel { LoginViewModel(get(), get(), get(), get()) }
+            factory { ClearLoginLocalDataUsecase(loginRepository = get()) }
             factory { ValidateEmailUsecase() }
             factory { LoginUsecase(loginRepository = get()) }
             factory { AuthenticateUsecase(loginRepository = get()) }

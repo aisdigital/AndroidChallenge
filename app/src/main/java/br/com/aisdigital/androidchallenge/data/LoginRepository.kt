@@ -8,6 +8,7 @@ import org.koin.java.KoinJavaComponent.inject
 class LoginRepository(private val loginRemoteDatasource: ILoginRemoteDatasource, private val sharedPreferencesLocalDatasource: ISharedPreferencesLocalDatasource) {
 
     private val authTokenSharedPrefKey = "authentication_token"
+    private val loginDataSharedPrefKey = "login_data"
 
     suspend fun authenticate(email: String, password: String) : ResultApi<AuthenticationResponse> {
         return when(val result = loginRemoteDatasource.authenticate(email, password)) {
@@ -23,6 +24,18 @@ class LoginRepository(private val loginRemoteDatasource: ILoginRemoteDatasource,
 
     suspend fun login() : ResultApi<LoginResponse> {
         val authToken = sharedPreferencesLocalDatasource.getString(authTokenSharedPrefKey)
-        return loginRemoteDatasource.login(authToken)
+        return when (val result = loginRemoteDatasource.login(authToken)) {
+            is ResultApi.Success -> {
+                sharedPreferencesLocalDatasource.saveLoginData(loginDataSharedPrefKey, result.data)
+                result
+            }
+            is ResultApi.Error -> {
+                result
+            }
+        }
+    }
+
+    fun clearLocalData() {
+        sharedPreferencesLocalDatasource.clearLocalData()
     }
 }

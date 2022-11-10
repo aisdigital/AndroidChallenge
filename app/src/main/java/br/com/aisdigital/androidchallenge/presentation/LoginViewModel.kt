@@ -10,9 +10,8 @@ import br.com.aisdigital.androidchallenge.domain.AuthenticateUsecase
 import br.com.aisdigital.androidchallenge.domain.LoginUsecase
 import br.com.aisdigital.androidchallenge.domain.ValidateEmailUsecase
 import kotlinx.coroutines.launch
-import org.koin.java.KoinJavaComponent.inject
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(var loginUsecase: LoginUsecase, var authenticateUsecase: AuthenticateUsecase, var validateEmailUsecase: ValidateEmailUsecase) : ViewModel() {
     private val loadingState: LoadingState by lazy {
         LoadingState()
     }
@@ -27,14 +26,10 @@ class LoginViewModel : ViewModel() {
     val loadingStateLiveData: LiveData<LoadingState> get() = loadingStateMutableLiveData
 
     private val validationErrorMutableLiveData = MutableLiveData<ValidationErrorState>()
-    val validationErrorLiveData: LiveData<ValidationErrorState> get() = validationErrorMutableLiveData
+    val validationErrorStateLiveData: LiveData<ValidationErrorState> get() = validationErrorMutableLiveData
 
     private val loginResultMutableLiveData = MutableLiveData<LoginResultState>()
-    val loginResultLiveData: LiveData<LoginResultState> get() = loginResultMutableLiveData
-
-    private val loginUsecase: LoginUsecase by inject(LoginUsecase::class.java)
-    private val authenticateUsecase: AuthenticateUsecase by inject(AuthenticateUsecase::class.java)
-    private val validateEmailUsecase: ValidateEmailUsecase by inject(ValidateEmailUsecase::class.java)
+    val loginResultStateLiveData: LiveData<LoginResultState> get() = loginResultMutableLiveData
 
     fun authenticate(email: String?, password: String?) {
         if (validateFields(email, password)) {
@@ -57,9 +52,11 @@ class LoginViewModel : ViewModel() {
         viewModelScope.launch {
             when (loginUsecase.login()) {
                 is ResultApi.Success -> {
+                    setLoadingState(isLoading = false)
                     setLoginResultState(success = true)
                 }
                 is ResultApi.Error -> {
+                    setLoadingState(isLoading = false)
                     setLoginResultState(success = false)
                 }
             }
@@ -85,7 +82,7 @@ class LoginViewModel : ViewModel() {
         loginResultMutableLiveData.value = loginResultState
     }
 
-    private fun setLoadingState(isLoading: Boolean) {
+    fun setLoadingState(isLoading: Boolean) {
         loadingState.isLoading = isLoading
         loadingStateMutableLiveData.value = loadingState
     }

@@ -4,6 +4,8 @@ import br.com.aisdigital.androidchallenge.data.ILoginRemoteDatasource
 import br.com.aisdigital.androidchallenge.data.model.AuthenticationResponse
 import br.com.aisdigital.androidchallenge.data.model.LoginResponse
 import br.com.aisdigital.androidchallenge.data.model.ResultApi
+import kotlinx.coroutines.test.runTest
+import java.util.concurrent.CountDownLatch
 
 class MockRemoteDatasource(var success: Boolean = false) : ILoginRemoteDatasource {
 

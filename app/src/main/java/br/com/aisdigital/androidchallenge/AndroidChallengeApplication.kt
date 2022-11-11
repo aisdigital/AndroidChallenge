@@ -22,14 +22,14 @@ class AndroidChallengeApplication : Application() {
 
     private fun setupKoin() {
         val module = module {
-            viewModel { LoginViewModel(get(), get(), get(), get()) }
+            viewModel { LoginViewModel(loginUsecase = get(), clearLoginLocalDataUsecase =  get(), authenticateUsecase =  get(), validateEmailUsecase =  get()) }
             factory { ClearLoginLocalDataUsecase(loginRepository = get()) }
             factory { ValidateEmailUsecase() }
             factory { LoginUsecase(loginRepository = get()) }
             factory { AuthenticateUsecase(loginRepository = get()) }
             factory { LoginRepository(loginRemoteDatasource = get(), sharedPreferencesLocalDatasource = get()) }
-            single<ILoginRemoteDatasource> { LoginRemoteDatasource(baseRemoteDatasource = get()) }
-            single { BaseRemoteDatasource() }
+            single<ILoginRemoteDatasource> { LoginRemoteDatasource(retrofitClient = get()) }
+            single { RetrofitClient() }
             single<ISharedPreferencesLocalDatasource> { SharedPreferencesLocalDatasource(androidContext()) }
         }
         startKoin {

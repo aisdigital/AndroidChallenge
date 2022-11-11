@@ -18,11 +18,7 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Rule
-import org.junit.runner.RunWith
-import org.junit.runners.JUnit4
 
-
-@RunWith(JUnit4::class)
 class LoginViewModelTest {
 
     @get:Rule
@@ -43,7 +39,12 @@ class LoginViewModelTest {
         val loginUsecase = LoginUsecase(loginRepository)
         val validateEmailUsecase = ValidateEmailUsecase()
         val clearLoginLocalDataUsecase = ClearLoginLocalDataUsecase(loginRepository)
-        viewModel = LoginViewModel(loginUsecase, authenticateUsecase, validateEmailUsecase, clearLoginLocalDataUsecase)
+        viewModel = LoginViewModel(
+            loginUsecase,
+            authenticateUsecase,
+            validateEmailUsecase,
+            clearLoginLocalDataUsecase
+        )
     }
 
     @Test
@@ -100,21 +101,15 @@ class LoginViewModelTest {
         }
     }
 
-//    @OptIn(ExperimentalCoroutinesApi::class)
-//    @Test
-//    fun `test livedata emitting loading state`() = runTest {
-//
-//        //TODO REFAZER COM OUTRO MOCK
-//        setupMocks(apiSuccess = true)
-//        viewModel.setLoadingState(true)
-//        viewModel.loadingStateLiveData.observeOnce {
-//            assertTrue(it.isLoading)
-//        }
-//        viewModel.setLoadingState(false)
-//        viewModel.loadingStateLiveData.observeOnce {
-//            assertFalse(it.isLoading)
-//        }
-//    }
+    @OptIn(ExperimentalCoroutinesApi::class)
+    @Test
+    fun `test livedata emitting loading state`() = runTest {
+        setupMocks(apiSuccess = true)
+        viewModel.authenticate("teste@teste.com", "jsidajds")
+        viewModel.loadingStateLiveData.observeOnce {
+            assertFalse(it.isLoading)
+        }
+    }
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
@@ -138,6 +133,7 @@ class LoginViewModelTest {
             viewModel.authenticate("teste@teste.com", "sdsddsds")
             viewModel.loginResultStateLiveData.observeOnce {
                 assertFalse(it.success)
+                assertEquals(it.errorMessageResourceId, R.string.api_error_message)
             }
         }
     }

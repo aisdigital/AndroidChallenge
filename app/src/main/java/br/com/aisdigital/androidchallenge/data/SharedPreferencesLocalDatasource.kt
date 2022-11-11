@@ -2,6 +2,8 @@ package br.com.aisdigital.androidchallenge.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
+import android.util.Log.ERROR
 import br.com.aisdigital.androidchallenge.data.model.LoginResponse
 import com.google.gson.GsonBuilder
 
@@ -20,9 +22,14 @@ class SharedPreferencesLocalDatasource(applicationContext: Context) : ISharedPre
         sharedPreferences.edit().putString(key, jsonString).apply()
     }
 
-    override fun getLoginData(key: String): LoginResponse {
+    override fun getLoginData(key: String): LoginResponse? {
         val value = sharedPreferences.getString(key, null)
-        return GsonBuilder().create().fromJson(value, LoginResponse::class.java)
+        return try {
+            GsonBuilder().create().fromJson(value, LoginResponse::class.java)
+        } catch (e: Exception) {
+            Log.e(this.javaClass.name, e.message ?: e.localizedMessage ?: "")
+            null
+        }
     }
 
     override fun saveString(key: String, value: String) {

@@ -16,8 +16,8 @@ class MockLocalDatasource : ISharedPreferencesLocalDatasource {
         loginData = value
     }
 
-    override fun getLoginData(key: String): LoginResponse {
-       return loginData!!
+    override fun getLoginData(key: String): LoginResponse? {
+       return loginData
     }
 
     override fun saveString(key: String, value: String) {

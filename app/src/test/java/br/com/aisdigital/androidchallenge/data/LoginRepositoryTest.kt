@@ -14,17 +14,30 @@ class LoginRepositoryTest {
 
     private lateinit var loginRepository: LoginRepository
 
-    private fun setupMocks(apiSuccess: Boolean) {
+    private fun setupMocks(apiSuccess: Boolean = false) {
         val mockRemoteDatasource = MockRemoteDatasource(success = apiSuccess)
         val sharedPreferencesLocalDatasource = MockLocalDatasource()
         loginRepository = LoginRepository(mockRemoteDatasource, sharedPreferencesLocalDatasource)
     }
 
-    private fun setupLoginMocks(apiSuccess: Boolean) {
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private fun setupLoginMocks(apiSuccess: Boolean = false) {
         val mockRemoteDatasource = MockRemoteDatasource(success = apiSuccess)
-        val sharedPreferencesLocalDatasource = MockLocalDatasource()
-        sharedPreferencesLocalDatasource.string = "12345678"
-        loginRepository = LoginRepository(mockRemoteDatasource, sharedPreferencesLocalDatasource)
+        runTest {
+            val result = mockRemoteDatasource.authenticate("teste@teste.com", "23132")
+            if (result is ResultApi.Success) {
+                val sharedPreferencesLocalDatasource = MockLocalDatasource()
+                sharedPreferencesLocalDatasource.string = result.data.token
+                loginRepository =
+                    LoginRepository(mockRemoteDatasource, sharedPreferencesLocalDatasource)
+            } else if (result is ResultApi.Error) {
+                val sharedPreferencesLocalDatasource = MockLocalDatasource()
+                sharedPreferencesLocalDatasource.string = result.errorMessage
+                loginRepository =
+                    LoginRepository(mockRemoteDatasource, sharedPreferencesLocalDatasource)
+            }
+        }
+
     }
 
 
@@ -33,7 +46,8 @@ class LoginRepositoryTest {
     fun `test authenticate repository SUCCESS`() {
         runTest {
             setupMocks(apiSuccess = true)
-            val result: ResultApi<AuthenticationResponse> = loginRepository.authenticate("teste@teste.com", "hsahdshdha")
+            val result: ResultApi<AuthenticationResponse> =
+                loginRepository.authenticate("teste@teste.com", "hsahdshdha")
             assertTrue(result is ResultApi.Success)
             assertEquals("12345678", result.data.token)
         }

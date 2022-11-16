@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidChallenge</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="enter">Enter</string>
+    <string name="app_logo_image_content_description">Application Logo Image</string>
+    <string name="invalid_email">Invalid Email!</string>
+    <string name="emptyPassword">Password can not be empty!</string>
 </resources>

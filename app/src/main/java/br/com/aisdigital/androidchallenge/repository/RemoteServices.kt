@@ -1,5 +1,7 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.repository
 
+import br.com.aisdigital.androidchallenge.dto.Token
+import br.com.aisdigital.androidchallenge.dto.User
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header

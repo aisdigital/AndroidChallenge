@@ -1,9 +1,11 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.view
 
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import br.com.aisdigital.androidchallenge.viewmodel.MainViewModel
+import br.com.aisdigital.androidchallenge.R
 import br.com.aisdigital.androidchallenge.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

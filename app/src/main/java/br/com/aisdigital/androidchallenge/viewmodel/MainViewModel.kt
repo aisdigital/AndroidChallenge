@@ -1,8 +1,9 @@
-package br.com.aisdigital.androidchallenge
+package br.com.aisdigital.androidchallenge.viewmodel
 
 import android.util.Patterns
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.aisdigital.androidchallenge.repository.MainRepository
 
 class MainViewModel : ViewModel() {
 

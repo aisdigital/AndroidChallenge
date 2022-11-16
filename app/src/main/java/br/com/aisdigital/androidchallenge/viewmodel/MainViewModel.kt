@@ -36,4 +36,8 @@ class MainViewModel : ViewModel() {
     private fun login() {
         repository.login(token.value)
     }
+
+    fun isSuccessfulLogin(): MutableLiveData<Boolean> {
+        return repository.loginSuccessful
+    }
 }

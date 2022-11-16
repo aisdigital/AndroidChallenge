@@ -1,6 +1,7 @@
 package br.com.aisdigital.androidchallenge.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -55,6 +56,12 @@ class MainActivity : AppCompatActivity() {
                 mBinding.tilPasswordHint.error = getString(R.string.emptyPassword)
             } else {
                 mBinding.tilPasswordHint.isErrorEnabled = false
+            }
+        })
+
+        mainViewModel.isSuccessfulLogin().observe(this, { isSuccessful ->
+            if (isSuccessful) {
+                startActivity(Intent(applicationContext, TeamsActivity::class.java))
             }
         })
     }

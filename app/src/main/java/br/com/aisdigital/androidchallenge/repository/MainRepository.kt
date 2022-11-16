@@ -10,6 +10,7 @@ import retrofit2.Response
 class MainRepository {
 
     val token: MutableLiveData<String> = MutableLiveData()
+    val loginSuccessful: MutableLiveData<Boolean> = MutableLiveData()
 
     private val service = RetrofitConfig.remoteServices
 
@@ -36,11 +37,11 @@ class MainRepository {
 
         call.enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
-
+                loginSuccessful.value = response.isSuccessful
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-
+                loginSuccessful.value = false
             }
         })
     }
